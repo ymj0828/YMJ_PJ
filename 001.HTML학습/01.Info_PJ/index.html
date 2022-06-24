@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <!-- meta태그 초기정보 셋업 :
         charset 문자인코딩형식 지정 -->
+        <!-- 구글웹폰트 -->
+        <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
         <!-- 스타일시트 코딩구역 : 인터널방식 -->
         <style>
             /* 스타일시트 사용하는 영역 */
@@ -33,6 +35,13 @@
                 6. 그룹선택자 : , (예: p,div)
                 7. 종속선택자: 태그명+아이디/클래서명
                     (예: div#top / a.my)
+                8. 형제선택자: + (예: a+a)
+                    -> 해석: 앞에 지정요소가 있는 형제요소
+                9. 다중형제선택자: ~ (틸드)
+                    -> 해석: 선택된 형제요소 뒤의 모든 형제 요소들
+                    (예: li:nth-child(2)~li)
+                10. 속성선택자: [] (예: a[href=#])
+                    -> 특정속성을 가진 요소를 선택
 
                 [ CSS 요소 박스모델 필수속성 ]
                 1. width - 가로크기
@@ -54,6 +63,67 @@
 
                 참고)
                 https://www.w3schools.com/css/css_boxmodel.asp
+
+                [ 웹 색상표기법 ]
+
+                1. 해시코드 : #6자리숫자
+                    (두자리가 같을 경우 3자리로 축약표현가능)
+                    - 16진수로 표기함(0~f)
+                    - 해시코드로 투명도를 주려면 뒤에 2자리 추가하여
+                    8자리 숫자로 투명도를 표현함
+
+                2. RGB 코드 : rgba(red,green,blue,알파값)
+                - 0~255 까지 숫자중 사용
+                - red, green, blue
+                - 마지막 a는 alpha값 즉, 투명도 -> 없으면 생략!
+                (0~1사이의 소숫점값들 사용)
+
+                [ rgba 2가지 표기법 ]
+                1. rgba(red색,green색,blue색,alpha값)
+                - alpha값은 투명도 (0~1)
+                2. rgb(red색 green색 blue색 / alpha값%)
+                - alpha값은 투명도 (0%~100%)
+
+                3. HSL 코드 : hsla(hue,saturation,lightness,알파값)
+                - hue(색상), saturation(채도), lightness(명도)
+                - hue는 색상번호, 채도와 명도는 0~100%값 범위로 사용
+                - 마지막은 alpha값 -> 역시 없으면 생략!
+
+                4. 웹색상명: 지정된 컬러명으로 색생을 셋팅
+                예) red, green, blue, pink, navy, 등
+                - 모든 색상은 w3schools.com의 색상참조로 가서확인!
+                https://www.w3schools.com/cssref/css_colors.asp
+
+                [ 글자 관련 속성]
+                1. 글자크기 -> font-size
+                    값 -> 절대단위: px, pt
+                        상대단위: em, rem, %, vw, vh...
+                2. 글자두께 -> font-weight
+                    값 -> lighter(얇게), bold(두껍게), bolder(더 두껍게), 100~900(9단계)
+                        보통 글자체에 따라 지원여부에 달림
+                3. 글자체 -> font-family
+                    값 -> 기본적으로 로컬체를 적용함
+                        순서대로 콤마로 구분함
+                        예) font-family: 궁서체, 굴림체, Verdana
+                        ->최근에 웹폰트가 대세!!
+                        브라우저에서 다운로드 지원하는 글씨체
+                4. 글자색 -> color
+                    값 -> 색상명, 해시코드, rgb, hsl 등
+                5. 글자자간 -> letter-spacing
+                    -> 일반단위사용
+                6. 글자줄간격 -> line-height
+                    -> 단위없이 숫자만 쓰면 글자크기의 배수
+                7. 글자단어간격 -> word-spacing
+                    -> 일반단위사용
+                8. 글자스타일 -> font-style
+                -> 이탤릭일 때 사용 : italic
+                -> 이탤릭 해제 시 : normal
+                9. 글자데코레이션 -> text-decoration
+                    -> 글자에 줄긋기
+                    underline 밑줄
+                    overline 윗줄
+                    linethrought 중간줄
+                    none 줄없앰
             */
 
             /* 공통 클래스 */
@@ -104,12 +174,64 @@
                 */
             }
 
-            /* 2. 메인역역 */
+            /* 1. 상단영역 */
+            /* 타이틀 */
+            h1{
+                /* 글자크기 fz */
+                font-size: 34px;
+                /* 글자두께 */
+                font-weight:lighter;
+                /* 글자체 */
+                font-family: 'Black And White Picture', sans-serif;
+                /* 글자색 */
+                color:#1e8215;
+                /* 글자자간 */
+                letter-spacing:-5px;
+                /* 글자줄간격 */
+                line-height:1;
+                /* 글자단어간격 */
+                word-spacing:10px;
+                /* 글자스타일 */
+                
+            }
+            /* 메뉴GNB */
+            .nav>a{
+                /* font: 스타일 두께 크기/줄간격 글씨체; */
+                /* 글자색, 글자밑줄 -> 여기서 수정함! */
+                font:bold 20px/40px "맑은 고딕";
+                color:navy;
+                text-decoration: none;
+                /* font:italic bold 24px/30px "궁서"; */
+            }
+            /* 마우스오버시 */
+            /* :hover 가상클래스 */
+            .nav>a+a:hover{
+                /* a+a:hover -> 앞에 a요소가 있는 a요소 모두 선택
+                결과적으로 첫번째 a만 제외됨 */
+                color:red;
+                text-decoration:overline;
+                /* text-decoration:line-through; */
+            }
+            /* 메뉴 중 로고이미지 */
+            .nav a img{
+                vertical-align: -3px;
+                /* 
+                    vertical-align
+                    -> 인라인요소간 세로정렬
+                    : top, bottom, baseline, middle, 수치
+                    -> 인라인요소 진행방향인 오른쪽에 영향을 준다! (보통 이미지와 글자의 세로위치를 조정할 때 사용함!)
+                */
+            }
+
+            /* 2. 메인영역 */
             #cont img{
                 width:100%;
                 /* 이미지는 가로크기를 주면
                 세로크기는 비율유지함! */
             }
+
+            /* 3. 하단영역 */
+            
         </style>
 </head>
 <body>
