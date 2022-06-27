@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet" />
     <!-- 외부스타일시트 불러오기 : 익스터널방식 -->
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/sub.css">
 </head>
 
 <body>
@@ -78,20 +79,279 @@
     <!-- 2. 메인영역 -->
     <main id="cont" class="bxc">
         <!-- 2-1. 언론사로고 -->
-        <div class="prlogo"></div>
+        <div class="prlogo">
+            <a href="https://www.seoul.co.kr/" target="_blank">
+                <img src="./images/pr4.png" alt="서울신문사로고">
+            </a>
+        </div>
         <!-- 2-2. 기사제목 -->
-        <h2 class="atit"></h2>
+        <h2 class="atit">[우주를 보다] 태양계 ‘8개 행성’ 모두 담긴 희귀 사진 공개</h2>
         <!-- 2-3. 기사사진(+사진설명) -->
-        <figure class="afig"></figure>
+        <figure class="afig">
+            <img src="./images/arti4.jpg" alt="IT/과학기사이미지">
+            <!-- 이미지설명 -->
+            <figcaption>
+                <small>한 이미지에 담겨 있는 태양계 8개 행성. / APOD NASA</small>
+            </figcaption>
+            <!-- 이미지설명 하단에 다른 태그 못씀! -->
+        </figure>
         <!-- 
             figure 요소 : 이미지나 표, 그림 등을 넣는 요소
             - figcaption 요소 : 이미지 설명박스(옵션)
             -> 주의: 하단에 다른 태그 사용불가!
          -->
         <!-- 2-4. 기사내용 -->
-        <section class="arti"></section>
+        <section class="arti">
+            <p><b>태양계<sup>①</sup> 행성<sup>②</sup> 8개</b>가 모두 담긴 사진이 공개돼 관심을 모으고 있다. <strong>‘오늘의 천체사진’</strong>(APOD) 25일자에 따르면, 낭만적인 분위기의 새벽 하늘 풍경을 담은 이 사진은 <i>카메라 4대가 동시 촬영한 이미지</i>를 합쳐 만들었다.</p>
+
+            <p>이 아름다운 천체 파노라마 사진은 지난 24일 해돋이 직전, <em>태양계의 모든 행성</em>을 담고 있다.</p>
+
+            <p>안개가 자욱한 아침, 가장 안쪽에 있는 행성인 수성은 지평선에 바짝 붙어 있는데 아침놀을 배경으로 <mark>찬연하게 빛나는 금성</mark>의 왼쪽 아래에서 볼 수 있다. <del>하지만 나는 볼 수 없었다! 흑흑ㅠㅠ</del></p>
+
+            <p>맨눈으로 볼 수 있는 행성들인 화성<sub>mars</sub>, 목성<sub>jupiter</sub>, 토성<sub>saturn</sub>은 이울어가는 초승달의 오른쪽으로 큰 호를 그리며 황도 근처에서 <ins>아름답게</ins> 빛나고 있다. 사진작가 다니엘은 <q>찍는데 너무 힘들었지만 보람이 있습니다!</q> 라고 말했다.</p>
+
+            <p>이들보다 훨씬 희미한 행성인 천왕성과 해왕성은 발견하는 데 쌍안경이 필요했을 것이다. 비록 두 행성은 하늘의 황도를 따라 있지만 말이다. <abbr title="누구나 다 볼 수 있다">누다볼</abbr>이다!</p>
+
+            <p>태양계 행성 8개는 이 사진에 100% 출석했다. 앞서 나온 일곱 행성 외의 지구는 바로 사진작가의 발 아래 있기 때문이다. 사진을 촬영한 위치는 이탈리아의 마리나 디 산 니콜라 근처에 있는 고대 로마 빌라의 유적지인 것으로 알려졌다.
+
+                <br>
+                <bdo dir="rtl">우리나라대한민국만세!</bdo>
+            </p>
+        </section>
+        <!-- 
+            p요소 : paragraph 문단요소
+            -> 문단을 나눌 때 사용하는 요소
+            -> 주의: p요소 내부에 다른 블록요소를 못씀!
+         -->
+
+         <hr>
+         <!-- 블록인용구 박스 -->
+         <div class="bquote">
+            <h3>태양계의 발견과 탐험</h3>
+            <blockquote cite="https://ko.wikipedia.org/wiki/%ED%83%9C%EC%96%91%EA%B3%84">
+                오랜 시간 동안 인류는 (몇몇 주목할 만한 예외가 있지만) 태양계의 존재를 인식하지 못하였다. 그들은 지구가 우주의 중심에 있고 움직이지 않으며, 하늘에서 움직이는 다른 천체와는 절대적으로 다른 존재라고 믿었다. 인도의 수학자이자 천문학자인 아리아바타와 고대 그리스의 철학자 사모스의 아리스타르코스가 태양 중심의 우주론을 추측하기도 했지만[1], 태양중심설을 최초로 수학적으로 예측한 사람은 니콜라우스 코페르니쿠스다. 17세기에는 그 계승자 요하네스 케플러, 갈릴레오 갈릴레이, 아이작 뉴턴이 물리학에 대한 이해로 지구가 태양 주위를 움직이고, 행성은 지구를 제어하는 힘과 같은 힘으로 제어된다는 생각을 수용하였다. 좀 더 최근에는, 망원경 기술이 발달하고 무인 우주선을 사용할 수 있게 됨으로써, 다른 행성의 산맥이나 크레이터 등과 같은 지질학적 현상과 구름, 모래폭풍, 만년설 같은 기상학적 현상을 조사할 수 있게 되었다.
+            </blockquote>
+         </div>
+
+         <hr><!-- 가로구분선 -->
+         <!-- horizontal line -->
+
+         <!-- 주해표시박스 -->
+         <div class="desc">
+             <h3>▣주해:</h3>
+             <small>
+                ① 태양계는 항성인 태양과 그 중력에 이끌려 있는 주변 천체가 이루는 체계를 말한다.
+                <br><br>
+                ② 행성 또는 혹성, 떠돌이별은 우주에서 항성의 둘레를 도는 천체의 한 부류이다.
+                <br><br>
+             </small>
+         </div>
+         <hr>
+
         <!-- 2-5. 기자정보 -->
-        <div class="rinfo"></div>
+        <div class="rinfo">
+            이광식 과학 칼럼니스트 joand999@naver.com
+        </div>
+
+        <!-- 2-6. 기사원문 -->
+        <h5>
+            <a href="https://n.news.naver.com/mnews/article/081/0003282618?sid=105" target="_blank">기사원문</a>
+        </h5>
+
+        <hr>
+        <!-- 오늘의 작품 & 느낌 -->
+        <div class="work">
+            <h3>오늘의 작품 &amp; 느낌</h3>
+                <figure>
+                    <img src="./images/the_scream.jpg" alt="뭉크의 절규">
+                    <figcaption>
+                        뭉크의 <cite>&lt;절규&gt;</cite>
+                    </figcaption>
+                </figure>
+            </div>
+            <!-- 
+                html 특수문자 처리
+                & 엔퍼센드 &amp;
+                < 여는꺽쇠 &lt;
+                > 닫는꺽쇠 &gt;
+             -->
+             <hr>
+             <!-- IT 돋보기 기사모음 (순서없는 리스트 ul) -->
+             <div class="itmag">
+                <h3>IT 돋보기</h3>
+                <ul>
+                    <li>
+                        <a href="https://n.news.naver.com/mnews/article/031/0000681151?sid=105" target="_blank">
+                            우크라 침공 장기전…사이버 위협 전세계 확산 [IT돋보기]
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://n.news.naver.com/mnews/article/031/0000681044?sid=105" target="_blank">
+                            알뜰폰 '이통사·금융사도 싫다'…'제4이통 MVNE' 육성 시급 [IT돋보기]
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://n.news.naver.com/mnews/article/031/0000680866?sid=105" target="_blank">
+                            "전기통신사업법 근본적 한계…'新 통합ICT법' 부상 [IT돋보기]
+                        </a>
+                    </li>
+                </ul>
+             </div>
+
+             <hr>
+             <!-- 랭킹뉴스 -->
+             <div class="rank">
+                <h3>랭킹뉴스</h3>
+                <ol>
+                    <li>
+                        <a href="https://n.news.naver.com/mnews/ranking/article/437/0000303442?ntype=RANKING&sid=001" target="_blank">
+                            [영상] 순식간에 앞으로 쏟아졌다…콜롬비아서 투우 경기장
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://n.news.naver.com/mnews/ranking/article/421/0006180613?ntype=RANKING&sid=001" target="_blank">
+                            아픈 유나 업고 송곡항서 어디로…실종 일가족 수색 산으로  …
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://n.news.naver.com/mnews/ranking/article/009/0004983193?ntype=RANKING&sid=001" target="_blank">
+                            축 늘어진 아이, 차례로 꺼진 휴대폰…완도 실종 가족 CCTV 보니
+                        </a>
+                    </li>
+                </ol>
+             </div>
+
+             <!-- 
+                [ 그룹요소 : ]
+
+                (1) ul - 순서없는 리스트
+                ul > li
+                - 앞에 블릿은 CSS로 변경할 수 있음
+                (list-style-type:square/disc/circle)
+                참고) https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ul_type_css
+
+                (2) ol - 순서있는 리스트
+                ol > li
+                -> 앞에 숫자는 CSS로 혹은 type 속성으로 변경가능함
+
+                참고) https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ol_type_all_css
+
+                - start 속성 : 시작번호 지정
+                - reversed 속성:일련번호를 거꾸로 진행
+
+
+                (공통)
+                -> 직계자식으로 li만 올 수 있다!
+                -> 블릿없애기 -> list-style: none;
+                -> 기본 마진, 패딩이 있으므로 변형사용 시 이것을 없애는 것이 일반적임!
+
+              -->
+
+              <hr>
+              <!-- 분야별 뉴스 -->
+              <div class="secnews">
+                <h3>분야별 뉴스</h3>
+                <dl>
+                    <dt>경제</dt>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/015/0004716982?sid=101" target="_blank">
+                            저신용자 절반, 알면서도 불법 대부업체 찾아…연 240% 금리도
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/215/0001039516?sid=101" target="_blank">
+                            올해 예비유니콘 20개사 선정…비대면 기업 '대세'
+                        </a>
+                    </dd>
+
+                    <dt>사회</dt>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/374/0000291936?sid=102" target="_blank">
+                            '한 달 살기' 실종 초등생 일가족 감감무소식…경찰 수색 확대
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/015/0004717000?sid=102" target="_blank">
+                            경찰국 발표날 사의 표명한 청장…경찰 내부 반발 격화
+                        </a>
+                    </dd>
+
+                    <dt>TV/연예</dt>
+                    <dd>
+                        <a href="https://entertain.naver.com/read?oid=311&aid=0001467413" target="_blank">
+                            유지태 "'종이의 집' 호불호 예상…빛나는 김윤진 의지" [인터뷰 종합]
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="https://entertain.naver.com/read?oid=312&aid=0000555158&cid=1073787" target="_blank">
+                            박해일 "탕웨이, 경기도 전원주택서 텃밭 가꾸고 토끼·닭 키워…수수한 면도"('정희')
+                        </a>
+                    </dd>
+                </dl>
+              </div>
+              <!-- 
+                [ 그룹요소 - 용어정의리스트 dl ]
+                dl > dt + dd
+                ____________
+                
+                dl : 용어리스트
+                    (defines the description list)
+                dt : 용어정의
+                    (defines the term)
+                dd : 용어설명
+                    (describes each term)
+                ______________
+
+                주의사항 - dl은 반드시 자식요소로 dt, dd를 한번이상 사용해야 함!
+                
+               -->
+
+               <hr>
+               <div class="pnews">
+                    <h3>사진뉴스</h3>
+                    <table>
+                        <!-- 첫째줄 -->
+                        <tr>
+                            <td>
+                                <a href="https://n.news.naver.com/mnews/article/029/0002740770?sid=105" target="_blank">
+                                    8.5조 카카오모빌리티 매각?<br>"카카오페이 먹튀와 뭐가 다르냐"
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://n.news.naver.com/mnews/article/029/0002740770?sid=105" target="_blank">
+                                    <img src="./images/pn1.jpg" alt="사진뉴스1">
+                                </a>
+                            </td>
+                        </tr>
+                        <!-- 둘째줄 -->
+                        <tr>
+                            <td>
+                                <a href="https://n.news.naver.com/mnews/article/014/0004858230?sid=105" target="_blank">
+                                    1조4천억 투자 AI반도체 키워<br>시스템반도체 강국 노린다
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://n.news.naver.com/mnews/article/014/0004858230?sid=105" target="_blank">
+                                    <img src="./images/pn2.jpg" alt="사진뉴스2">
+                                </a>
+                            </td>
+                        </tr>
+                        <!-- 셋째줄 -->
+                        <tr>
+                            <td>
+                                <a href="https://n.news.naver.com/mnews/ranking/article/277/0005108657?ntype=RANKING&sid=001" target="_blank">
+                                    "원전 기술자들 이미 은퇴했다"<br>美·유럽 '원전 회귀'에 …
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://n.news.naver.com/mnews/ranking/article/277/0005108657?ntype=RANKING&sid=001" target="_blank">
+                                    <img src="./images/pn3.jpg" alt="사진뉴스3">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+               </div>
+            
     </main>
     <!-- 3. 하단영역 -->
     <footer id="info" class="bxc">
@@ -104,19 +364,61 @@
     </footer>
 
     <!-- 
-        [ div 형제 요소들 ]
+        [ HTML 서식 요소들 ]
 
-        -> div에 어떤 내용영역인지 알 수 있도록 의미를 부여한 새로운 레이아웃용 태그들!
-        -> 태그에 의미를 부여함! -> 시멘틱태그!(sementic tag)
+        1. 두꺼운 글자
+        <b>- 굵은 텍스트(bold text)
+        <strong>- 중요한 텍스트(Important text)
 
-        1. header - 상단영역
-        2. footer - 하단영역
-        3. main - 메인영역( 한페이지에 한번만!)
-        4. nav - 네비게이션 영역
-        5. aside - 부수적인 내용 영역
-        6. section - 내용구분을 위한 영역
-        7. article - 독립적인 내용을 구분하는 영역
-            (보통 article이나 section은 w3c에서 heading 태그(h1~h6)를 내용에 사용할 것을 권고함! - 안써도 무관! )
+        2. 이탤릭 스타일 글자
+        <i>- 기울임꼴 텍스트(italic text)
+        <em>- 강조된 텍스트(emphasized text)
+
+        -> 시멘틱요소(의미있는 요소) : strong, em
+
+        3. 눈에 띄게 색상표시
+        <mark>- 표시된 텍스트(노란색배경-marked text)
+
+        4. 작은글자표시
+        <small>- 더 작은 텍스트(smaller text -> h5글자크기)
+
+        5. 지움표시
+        <del>- 삭제된 텍스트(deleted text)
+            -> text-decoration: line-through
+
+        6. 삽입표시
+        <ins>- 삽입된 텍스트(inserted text)
+            -> text-decoration: underline
+
+        7. 윗첨자, 아랫첨자
+        <sub>- 아래 첨자 텍스트(subscript text)
+        <sup>- 위 첨자 텍스트(superscript text)
+
+        [ HTML 인용요소 ]
+
+        1. 줄임말 요소
+        <abbr> 줄임말 오버 시 툴팁표시(abbreviation)
+            -> 필수속성:title속성
+            (title속성은 툴팁을 쓰고 싶은 어느 요소나 사용가능함!)
+
+        2. 주소표시
+            <address> 주소, 대표, 전화번호 등 정보표시
+                (시멘틱하다!)
+
+        3. 인용관련요소
+        (1) <blockquote>
+            블록요소로 별도의 인용구를 구분하는 박스
+            -> 주의: p요소안에 사용하면 안됨!
+            -cite 속성 : 출처표시
+                (필수속성이 아니며 url주소가 들어가기 때문에 링크로 오해될 수 있으나 아님! 단순 출처정보임!)
+        (2) <q> 작은 인용구(쌍따옴표가 자동생성)
+            -> 인라인 요소임!
+        (3) <cite> 작품명 인용
+
+        4. 글자역순표시 (Bi-Directional Override)
+        <bdo> 오른쪽부터 출력이 필요한 경우 속성으로 셋팅
+            dir="rtl"
+            -> right to left 즉, 오른쪽에서 왼쪽으로 표시
 
      -->
 </body>
