@@ -82,7 +82,8 @@
     font-size:17px;
     /* 줄간격: 숫자만 쓰면 배수 */
     line-height:1.6;
-
+    /* 패딩양쪽 */
+    padding:0 10px;
 }
 /* 기타 타이틀 h3 */
 #cont h3{
@@ -94,4 +95,11 @@
     font-size: 25px;
     /* 패딩왼쪽 */
     padding-left: 10px;
+}
+
+/* 공통박스 */
+#cont article{
+    border-top:2px dashed #ccc;
+    margin-top:40px;
+    padding:15px;
 }
