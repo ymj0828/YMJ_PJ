@@ -86,5 +86,12 @@
 }
 /* 기타 타이틀 h3 */
 #cont h3{
+    /* 글자체: 웹폰트적용 */
     font-family: 'Black And White Picture', sans-serif;
+    /* 글자두께: 얇은체 */
+    font-weight:normal;
+    /* 글자크기 */
+    font-size: 25px;
+    /* 패딩왼쪽 */
+    padding-left: 10px;
 }
