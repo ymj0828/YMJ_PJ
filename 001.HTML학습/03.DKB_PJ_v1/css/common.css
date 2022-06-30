@@ -7,7 +7,7 @@
  별표(*)는 모든 요소 선택 */
 
 body *{
-    outline: 2px dashed gray;
+    outline: 1px dashed gray;
 /*  외곽선 - 박스요소의 외곽선만 표현
     박스 바깥쪽으로 생성됨
     (자신 또는 다른 요소에 영향이 없음)
