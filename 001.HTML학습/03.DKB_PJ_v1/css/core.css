@@ -2,6 +2,18 @@
 /* 도깨비 PJ 핵심공통모듈 CSS - core.css */
 /* 공통 class / 웹폰트 */
 
+/* 웹폰트 CDN */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo&family=Noto+Serif+KR&family=Song+Myung&display=swap');
+
+/* 
+font-family: 'Jua', sans-serif;
+font-family: 'Nanum Myeongjo', serif;
+font-family: 'Noto Serif KR', serif;
+font-family: 'Song Myung', serif;
+*/
+
+
+
 /* 속박스 class */
 .ibx{
     max-width: 1200px;
