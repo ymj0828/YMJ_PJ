@@ -150,7 +150,7 @@ body{
     height: 70px;
     border-radius:50%;
     /* CSS3 그라데이션 */
-    background-image: radial-gradient(red, blue, yellow);
+    background-image: radial-gradient(farthest-side at 20px 20px, white, #333);
     /* [선형 그라데이션] */
     /* background-image: linear-gradient(방향/각도, 색1 비율, 색2 비율...);
     - 방향값은 to top, to bottom, to left, to right
