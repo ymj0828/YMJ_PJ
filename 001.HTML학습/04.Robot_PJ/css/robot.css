@@ -36,6 +36,16 @@ body{
 /***************** 2-1. 로봇박스 ********************/
 .robx{
     padding-top: 200px;
+    padding-bottom: 400px;
+}
+/* 하위요소 공통설정 */
+.robx>div>div{
+    /* 앱솔루트 포지션 */
+    position:absolute;
+    /* 배경공통 */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 /***************** 2-1-1. 로봇머리 ********************/
 .head{
@@ -49,14 +59,9 @@ body{
 }
 /* 눈공통 */
 .eye{
-    position: absolute;
     width: 50px;
     height: 50px;
-    /* 배경공통설정 */
     background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     /* 둥근모서리: 50% 원 */
     border-radius: 50%;
     /* 보더 이중선 */
@@ -74,12 +79,149 @@ body{
     right: 50px;
     background-image: url(../images/e2.jpg);
 }
+/* 코 */
+.nose{
+    top: 106px;
+    left: 97px;
+    width: 50px;
+    height: 53px;
+    background-image: url(../images/nose.jpg);
+    background-position-x:0px !important;
+    background-position-y:-3px !important;
+    background-size: auto 106% !important;
+    border-radius:30px;
+}
+/* 입 */
+.mouth{
+    bottom:24px;
+    left:82px;
+    width: 83px;
+    height: 46px;
+    background-image: url(../images/mouth.png);
+}
+/* 귀공통 */
+.ear{
+    top: 100px;
+    width:60px;
+    height: 90px;
+}
+/* 왼귀 */
+.el{
+    left:-60px;
+    border-radius: 30px 0 0 30px;
+}
+/* 오른귀 */
+.er{
+    right:-60px;
+    border-radius:0 30px 30px 0;
+}
 /***************** 2-1-2. 로봇몸 ********************/
 .body{
+    position: relative;
+    /* 부모자격! */
     width: 250px;
     height: 310px;
     margin: 0 auto;
     margin-top: 50px;
+}
+/* 목 */
+.neck{
+    top: -50px;
+    left: 95px;
+    width: 60px;
+    height: 50px;
+}
+/* 팔공통 */
+/* !important없이 우선순위 높이는 방법은 부모를 써준다! */
+.robx .arm{
+    width: 50px;
+    height: 300px;
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+/* 가상요소로 손만들기 */
+.arm::before{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom:-25px;
+
+    width: 70px;
+    height: 70px;
+    border-radius:50%;
+    /* CSS3 그라데이션 */
+    background-image: radial-gradient(red, blue, yellow);
+    /* [선형 그라데이션] */
+    /* background-image: linear-gradient(방향/각도, 색1 비율, 색2 비율...);
+    - 방향값은 to top, to bottom, to left, to right
+    - 각도는 숫자deg 
+    -> 방향 또는 각도를 사용, 안쓰면 to bottom 기본값
+    -> 색상을 쓰고 뒤에 필요한 경우 비율을 사용
+    -> 색상 뒤 비율을 안쓰면 등분할됨*/
+    /* 
+    
+    [ 원형 그라데이션 ]
+    background-image: linear-gradient(방향/각도, 색1 비율, 색2 비율%...);
+    - 옵션 : circle - 원형, 안쓰면 박스에 맞춤
+    - 세밀한 옵션주기!
+        ->>> 세부옵션 at 가로위치 세로위치
+        ->>> 세부옵션 종류 4가지:
+        1) closest - side / 2) farthest - side
+        3) closest - corner / 4) farthest - corner
+        예) radial-gradient(closest-corner at 30px 15px,white,blue)
+    -> 색상을 쓰고 뒤에 필요한 경우 비율을 사용
+    -> 색상 뒤 비율을 안쓰면 등분할됨
+    
+    */
+}
+/* 왼팔가상요소 */
+.arm.a1::before{
+    left:-15px
+}
+/* 오른팔가상요소 */
+.arm.a2::before{
+    right:-15px
+}
+/* 왼팔 */
+.a1{
+    left:-60px;
+}
+/* 오른팔 */
+.a2{
+    right:-60px;
+}
+/* 다리공통 */
+/* !important없이 우선순위 높이는 방법은 부모를 써준다! */
+.robx .leg{
+    top:100%;
+    width: 70px;
+    height: 250px;
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+/* 왼다리 */
+.l1{
+    left:0;
+}
+/* 오른다리 */
+.l2{
+    right:0;
+}
+/* 어깨공통 */
+.shd{
+    top: -20px;
+    width: 90px;
+    height: 80px;
+}
+/* 왼어깨 */
+.s1{
+    left:-80px;
+    border-radius:50% 5px 5px 50%;
+}
+/* 오른어깨 */
+.s2{
+    right:-80px;
+    border-radius:5px 50% 50% 5px;
 }
 /***************** 2-2. 로봇설명박스 ********************/
 /***************** 3. 하단영역 ********************/
