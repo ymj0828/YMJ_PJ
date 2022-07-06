@@ -50,6 +50,8 @@ body{
 }
 /* 캐릭터 개별박스 공통 */
 .cat{
+    position: relative;
+    /* 부모자격 */
     /* 가로크기 : 4등분(25%) - 양쪽마진(1%) = 24% */
     width: 24%;
     /* 양쪽마진 : 위아래0 양쪽0.5% */
@@ -118,9 +120,8 @@ body{
 
 /* 캐릭터 설명박스 */
 .cd{
-    /* 
-    높이값 설정 : 0 -> 250px 오버시변경
-     */
+    position: absolute;
+    /* 높이값 설정 : 0 -> 250px 오버시변경 */
     height:0px;
     /* 넘치는 내용 자동스크롤
     높이값에 따라 스크롤이 자동변경됨!
@@ -181,11 +182,12 @@ body{
 /* 캐릭터 설명 타이틀 */
 .cd h3{
     font-family: 'Jua', serif;
-    font-size:24px;
+    font-size:min(1.9vw,26px);
+    /* 최대글자크기 26px, 이하는 유동적 */
     font-weight: lighter;
     padding:15px 10px 5px;
     /* 줄바꿈방지 */
-    /* white-space: nowrap; */
+    white-space: nowrap;
     letter-spacing: -1px;
 }
 
@@ -203,7 +205,8 @@ body{
 /* 캐릭터 설명 문단 */
 .cd p{
     font-family: 'Noto Serif KR', 'Song Myung';
-    font-size:16px;
+    font-size :min(1.1vw,16px);
+    /* 최대글자크기 16px, 이하는 유동적 */
     line-height:1.7;
     padding:10px;
     text-align:justify;
