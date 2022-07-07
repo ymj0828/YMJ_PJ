@@ -6,9 +6,9 @@
 /* 공사중 표시
  별표(*)는 모든 요소 선택 */
 
-/* body *{
+body *{
     outline: 1px dashed gray;
-} */
+}
 /*  외곽선 - 박스요소의 외곽선만 표현
     박스 바깥쪽으로 생성됨
     (자신 또는 다른 요소에 영향이 없음)
@@ -22,6 +22,9 @@
 /************************************ 1. 상단영역 ************************************/
 /* 겉박스 */
 #top{
+    /*  */
+    border: 1px solid #ccc;
+    /* 배경흰색 */
     background-color: #fff;
 }
 
@@ -129,18 +132,27 @@
 
 /* GNB 상위 a */
 .gnb>ul>li>a{
+    display: block;
     /* 글자크기 (17px) */
     font-size: 1.7rem;
     /* 줄간격 (44px) */
     line-height: 4.4rem;
-}
 
+    /* 보더 때문에 크기가 변하지 않게 원본에 만들고 투명하게 색처리함 */
+    border-bottom: 4px solid transparent;
+
+}
+/* 상위메뉴 마우스 오버시 상위 a에 하단보더 */
+.gnb>ul>li:hover>a{
+    /* 오버시엔 보더 색만 변경함! */
+    border-bottom-color:red;
+}
 /* 서브메뉴 */
 .smenu{
     position: absolute;
     z-index: 1;
     /* li가상요소 after보다 위! */
-    background-color: #fff;
+    /* background-color: #fff; */
 
     /* 서브메뉴 숨기기 */
     height: 0;
@@ -184,8 +196,16 @@
     height:0; /* 200px -> 오버시 각 수치로! */;
     background-color: #fff;
 
+    /* #top박스 하단보더 보이게 하기 위해 마진탑으로 1px 이동(top을 쓰면 복잡해짐) */
+    margin-top: 1px;
+
     /* 트랜지션: 속시이지 */
     transition:height .4s ease-out;
+}
+
+/* 상위 li에 오버 가상요소 하단 보더 공통 생성 */
+.gnb>ul>li:hover::after{
+    border-bottom: 2px solid red;
 }
 
 /************************************ 2. 메인영역 ************************************/
