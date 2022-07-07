@@ -39,8 +39,8 @@
         display: block;
         clear: both;
       }
-      /* li 리스트요소 */
-      .gnb li{
+      /* 상위 li 리스트요소 */
+      .gnb>ul>li{
         width: 200px;
         /* height: 40px; */
         text-align: center;
@@ -49,7 +49,7 @@
         /* box-sizing: border-box; */
       }
       /* li 사이에 구분선 넣기 */
-      .gnb li+li::before{
+      .gnb>ul>li+li::before{
         content:'';
         display:block;
         position: absolute;
@@ -57,14 +57,15 @@
         width: 1px;
         height: 20px;
         margin-top: 10px;
+        margin-left: 1px;
         background-color: blue;
       }
       .gnb li+li{
         /* border-left: 1px solid #000; */
       }
       
-      /* li 하위 a요소 */
-      .gnb a{
+      /* li 상위메뉴 a요소 */
+      .gnb>ul>li>a{
         /* a요소 확장 */
         display: block;
         width: 100%;
@@ -79,13 +80,93 @@
       }
       
       /* 부모li에 마우스 오버시 상위메뉴 a요소 변경 */
-      .gnb>ul>li>a:hover{
+      .gnb>ul>li:hover>a{
         color:lightskyblue;
         background-color: darkblue;
       }
 
+      /* 상단 메뉴 글자에 밑줄애니 */
+      .gnb>ul>li>a>span{
+        position: relative;
+        /* 부모자격 */
+      }
+      /* 가상요소로 밑줄넣기 */
+      .gnb>ul>li>a>span::after{
+        content:'';
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        /* 부모는? 싸고 있는 span */
+        width: 0;/* 마우스오버시 100% */
+        height: 1px;
+        background-color: #fff;
+        /* 트랜지션: 속시이지 - 돌아올 때 지연시간 없음! */
+        transition: width .2s ease-out;
+      }
+        /* 상위메뉴 오버시 가상요소로 밑줄넣기 */
+        .gnb>ul>li:hover>a>span::after{
+          width: 100%;
+          /* 오버시에 기다리는 시간 0.4초 */
+          transition-delay: .4s;
+        }
+      /* 
+        [ 부모요소로부터 상속되는 속성은 무엇인가? ]
+        글자체, 글자색, 글자크기, 글자정렬 등 글자관련속성들
+      */
+
       /* 서브메뉴 */
-      
+      .smenu{
+        position: absolute;
+        width: 200px;
+        /* 서브메뉴 박스 숨기기 */
+        height: 0;/* 1 */
+        overflow: hidden;/* 2 */
+        /* 주의사항: 높이값 0으로 숨기는 박스는 위아래 패딩, 보더는
+        숨겨지지 않으므로 쓰지 않는다. 디자인은 하위요소에서 할 것! */
+
+        background-color: darkblue;
+        border-radius: 0 0 5px 5px;
+
+        /* 트랜지션 */
+        transition:.4s
+      }
+      /* 상위메뉴 li 오버시 서브메뉴 보이기 - 2번 li */
+      .gnb>ul>li:nth-child(2):hover .smenu{
+        height: 170px;
+      }
+      /* 상위메뉴 li 오버시 서브메뉴 보이기 - 3번 li */
+      .gnb>ul>li:nth-child(3):hover .smenu{
+        height: 100px;
+      }
+      /* 서브메뉴 ol */
+      .smenu ol{
+        padding:15px;
+        /* outline: 1px dashed red; */
+      }
+      /* 서브메뉴 li */
+      /* .smenu li{
+        outline: 1px dotted blue;
+      } */
+
+      .smenu a{
+        /* a확장 */
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        font-size:14px;
+        color:lightskyblue;
+        text-decoration: none;
+        line-height: 35px;
+        /* 트랜지션 */
+        transition:.2s;
+      }
+      /* 서브메뉴 오버 시 */
+      .smenu a:hover{
+        background-color: lightskyblue;
+        color:darkblue
+      }
 
       /* 본문내용 */
       .cont {
@@ -101,12 +182,12 @@
     <nav class="gnb">
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="#"><span>Home</span></a>
         </li>
         <li>
-          <a href="#">웹개발</a>
+          <a href="#"><span>웹개발</span></a>
           <!-- 서브메뉴 -->
-          <!-- <div class="smenu">
+          <div class="smenu">
             <ol>
               <li>
                 <a href="#">웹디자인</a>
@@ -121,12 +202,12 @@
                 <a href="#">웹+모바일</a>
               </li>
             </ol>
-          </div> -->
+          </div>
         </li>
         <li>
-          <a href="#">게시판</a>
+          <a href="#"><span>게시판</span></a>
           <!-- 서브메뉴 -->
-          <!-- <div class="smenu">
+          <div class="smenu">
             <ol>
               <li>
                 <a href="#">Q&amp;A</a>
@@ -135,10 +216,10 @@
                 <a href="#">방명록</a>
               </li>
             </ol>
-          </div> -->
+          </div>
         </li>
         <li>
-          <a href="#">프로필</a>
+          <a href="#"><span>프로필</span></a>
         </li>
       </ul>
     </nav>
