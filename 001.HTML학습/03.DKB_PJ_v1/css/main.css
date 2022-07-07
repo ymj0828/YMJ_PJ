@@ -19,12 +19,6 @@ body{
     가로크기 10% 세로크기 auto(생략) */
 }
 
-/* float자식의 부모에 가상요소로 clear설정 */
-.cbx::after{
-    content:'';
-    display: block;
-    clear: both;
-}
 /* 메인영역 */
 .cont{
     padding-top:500px;
@@ -48,6 +42,14 @@ body{
     width:90%;
     margin: 0 auto;
 }
+
+/* float자식의 부모에 가상요소로 clear설정 */
+.cbx::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+
 /* 캐릭터 개별박스 공통 */
 .cat{
     position: relative;
@@ -195,7 +197,7 @@ body{
 .cd h3::before{
     content:'';
     display: inline-block;
-    width:15px;
+    width:18px;
     height: 30px;
     background: url(../images/bg_logo_a_01.png) no-repeat right -183px;
     vertical-align: -5px;
@@ -215,7 +217,7 @@ body{
 /* 캐릭터 설명 첫번째 p요소의 첫번째 글자
 가상요소롤 변경하기! */
 .cd p:first-of-type::first-letter{
-    font-size: 30px;
+    font-size: 35px;
     color:cyan;
     /* 글자그림자로 테두리 만들기
     그림자 4개를 각방향으로 1px 밀기 */
