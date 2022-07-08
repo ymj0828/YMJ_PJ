@@ -182,11 +182,17 @@ body{
 /* 로고 애니 키프레임 */
 @keyframes logoAni {
     /* from{} - 최초값이 같으면 생략! */
-    to{
+    80%{
         /* 왼쪽위에 위치, 원래크기복원 */
         top: 50px;
         left: 50px;
         transform: scale(1) rotate(0deg);
+    }
+    100%{
+        /* 왼쪽위에 위치, 원래크기복원 */
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(20deg);
     }
 }/* 키프레임 */
 
@@ -287,15 +293,27 @@ body{
     position: relative;
     /* 부모자격! */
     /* top은 애니메이션 변경대상! */
-    top: -100px;
+    top: -100%;
     /* 위쪽방향으로 부모박스 높이값의 100%만큼 이동 */
     width: 250px;
     height: 250px;
     margin: 0 auto;
     /* 둥근모서리 */
     border-radius: 50px 50px 0 0;
-    box-shadow: 0 0 10px 5px cyan;
+    /* box-shadow: 0 0 10px 5px cyan; */
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: headAni 1s ease-out 4s forwards;
 }
+
+/* 헤드애니 키프레임 */
+@keyframes headAni {
+    to{
+        top: 0;
+    }
+}/* 키프레임 */
+
+
 /* 눈공통 */
 .eye{
     width: 50px;
@@ -359,7 +377,7 @@ body{
     position: relative;
     /* 부모자격! */
     /* left는 애니메이션 변경대상! */
-    left: -100px;
+    left: -100%;
     /* 왼쪽방향으로 부모박스 가로크기의 100%만큼 이동
     -> 부모박스가 width:auto여도 %값이 적용된 이유는
     기본 가로를 채우는 크기를 가지고 있기 때문임! */
@@ -367,7 +385,18 @@ body{
     height: 310px;
     margin: 0 auto;
     margin-top: 50px;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: bodyAni 1s ease-out 3s forwards;
 }
+
+/* 바디애니 키프레임 */
+@keyframes bodyAni {
+    to{
+        left: 0;
+    }
+}/* 키프레임 */
+
 /* 로봇몸에 가상요소로 하단 바 만들기 */
 .body::after{
     content: '';
