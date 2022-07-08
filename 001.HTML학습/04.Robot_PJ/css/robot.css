@@ -128,8 +128,32 @@ body{
 /***************** 1-1. 로고 ********************/
 .logo{
     position: fixed;
-    top:100px;
-    left: 100px;
+
+    /* 정중앙 배치방법1 */
+    top:calc(50% - 100px);
+    left:calc(50% - 100px);
+    /* top, left - 애니대상1,2 */
+
+    /* 
+        -> clac 함수를 사용하여 중앙배치
+        calc(계산식) -> 4칙연산 가능
+        - 주의 : 덧셈, 뺄셈 기호 앞뒤 공백 필수!
+        - 원리 : 부모박스의 절반(50%)이동 후
+        중앙에 올 자신의 크기의 절반을 빼서 중앙으로 이동!
+    */
+
+    /* 정중앙 배치방법2 */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2); */
+    /* 
+    top, left를 부모박스의 절반(50%)만큼 밀고
+    트랜스폼 트랜스레이트로 내 크기의 절반만큼
+    왼쪽, 위쪽으로 이동하면 정중앙이된다. */
+
+    /* 처음에 2배 크게 설정 - 애니대상3 */
+    transform: scale(2);
+
 
     width: 200px;
     height: 200px;
@@ -147,12 +171,43 @@ body{
     background: pink url(../images/robot_03.png) no-repeat center 10px/160px;
     border-radius:50%;
     border: 2px solid #ccc;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation:
+    logoAni 1.5s ease-in-out 2s forwards,
+    logoAni2 .6s ease-in-out 3.5s infinite alternate;
+    /* animation: logoAni 1s ease-in-out 1s infinite alternate backwards; */
 }
+
+/* 로고 애니 키프레임 */
+@keyframes logoAni {
+    /* from{} - 최초값이 같으면 생략! */
+    to{
+        /* 왼쪽위에 위치, 원래크기복원 */
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(0deg);
+    }
+}/* 키프레임 */
+
+/* 로고 흔들기 애니 키프레임 */
+@keyframes logoAni2{
+    0%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform:rotate(-20deg);
+    }
+}
+
+
 /***************** 1-2. 내용링크 ********************/
 .link{
     position: absolute;
     top: 100px;
     right: 50px;
+    /* 투명도 -> 애니대상! */
+    opacity: 0;
 }
 .link a{
     /* a요소에서 글자색, 밑줄 처리함! */
@@ -185,6 +240,8 @@ body{
         w3c 참조:
         https://www.w3schools.com/cssref/playdemo.asp?filename=playcss_border-style&preval=none;
     */
+    /* 투명도 -> 애니대상! */
+    opacity: 0;
 }
 /* 위로가기 버튼 오버 시 */
 .btnTop:hover{
@@ -209,6 +266,10 @@ body{
 /***************** 2. 메인영역 ********************/
 /***************** 2-1. 로봇박스 ********************/
 .robx{
+    height: 610px;
+    /* 높이값은 컨텐츠 영역의 높이임(패딩불포함)
+    높이값을 준 이유는? 자식 요소인 .head의 relative top값을
+    %로 이동시킬 경우 부모박스의 높이가 정해져야 하므로 줌! */
     padding-top: 200px;
     padding-bottom: 400px;
 }
@@ -225,6 +286,9 @@ body{
 .head{
     position: relative;
     /* 부모자격! */
+    /* top은 애니메이션 변경대상! */
+    top: -100px;
+    /* 위쪽방향으로 부모박스 높이값의 100%만큼 이동 */
     width: 250px;
     height: 250px;
     margin: 0 auto;
@@ -294,6 +358,11 @@ body{
 .body{
     position: relative;
     /* 부모자격! */
+    /* left는 애니메이션 변경대상! */
+    left: -100px;
+    /* 왼쪽방향으로 부모박스 가로크기의 100%만큼 이동
+    -> 부모박스가 width:auto여도 %값이 적용된 이유는
+    기본 가로를 채우는 크기를 가지고 있기 때문임! */
     width: 250px;
     height: 310px;
     margin: 0 auto;
