@@ -555,9 +555,9 @@ body{
 /* 오른팔 흔들기 키프레임 */
 @keyframes a2Ani2 {
     to{
-        transform: rotate(-120deg);
+        transform: rotate(-128deg);
     }
-}
+} /* 키프레임 */
 /* 다리공통 */
 /* !important없이 우선순위 높이는 방법은 부모를 써준다! */
 .robx .leg{
