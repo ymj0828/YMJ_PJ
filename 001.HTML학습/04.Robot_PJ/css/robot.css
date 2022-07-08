@@ -206,6 +206,25 @@ body{
     }
 }
 
+/* 내용링크, 위로가기버튼, TV를 위한 투명도 애니용 클래스만들기 */
+.opa-ani{
+    opacity:0;
+    animation: opaAni .7s linear 5s 5 alternate forwards;
+}
+/* 지연시간추가 */
+.opa-ani2{
+    animation-delay: 6s;
+}
+.opa-ani3{
+    animation-delay: 7s;
+}
+/* 투명도 애니 키프레임 */
+@keyframes opaAni {
+    to{
+        opacity: 1;
+    }
+} /* 키프레임 */
+
 
 /***************** 1-2. 내용링크 ********************/
 .link{
@@ -355,7 +374,17 @@ body{
     width: 83px;
     height: 46px;
     background-image: url(../images/mouth.png);
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: mouthAni .09s linear 7s infinite alternate;
 }
+/* 입애니 키프레임 */
+@keyframes mouthAni {
+    to{
+        transform: scaleY(.5);
+    }
+} /* 키프레임 */
+
 /* 귀공통 */
 .ear{
     top: 100px;
