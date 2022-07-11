@@ -85,6 +85,29 @@
         transition:flex .4s ease-in-out
       }
 
+      /* 가상요소로 오버레이효과 주기! */
+      /* 참고: 밝게 처리하는 것이 트랜스페런트(transparent)효과,
+      어둡게 처리하는 것이 오버레이(overlay)효과라고 한다! */
+      #wrap>ul>li::before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        /* 앱솔루트로 부모박스 채우기 */
+        background-color: #000;
+        opacity: 0.5;
+        /* 트랜지션 */
+        transition:opacity .4s
+      }
+      /* 마우스 오버 시 가상요소 투명도 0 */
+      #wrap>ul>li:hover::before{
+        opacity: 0;
+
+      }
+
       /* 등분할 li에 마우스 오버시 flex 속성으로 비율조정하기! */
       #wrap>ul>li:hover{
         flex:1.4;
@@ -112,6 +135,36 @@
       #wrap>ul>li:nth-child(5){
         background-color: #2e8ddf;
         background-image: url(./images/m05_bg.jpg);
+      }
+
+      /* 각 파트 타이틀 */
+      #wrap>ul>li>img:first-child{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* 부모자격? 싸고있는 li */
+        transform: translate(-50%,-50%);
+        /* [정중앙정렬하기]
+        top, left 50%, 트랜스폼 트랜스레이트 -50%위치이동
+        박스 정중앙이동! */
+        width: min(14vw, 190px);
+        /* min(유동적인값, 특정값)
+        -> 둘중 작은값 선택-> 최대크기지정! */
+      }
+
+      /* 각 파트 로고 */
+      #wrap>ul>li>img:last-child{
+        position: absolute;
+        bottom: 10vh;
+        left: 50%;
+        /* 부모자격? 싸고있는 li */
+        transform: translateX(-50%);
+        /* [정중앙정렬하기]
+        top, left 50%, 트랜스폼 트랜스레이트 -50%위치이동
+        박스 정중앙이동! */
+
+        /* min(유동적인값, 특정값)
+        -> 둘중 작은값 선택-> 최대크기지정! */
       }
 
       /* 타이틀 공통 */
@@ -147,7 +200,7 @@
         /* 랩핑박스 */
         flex-wrap: wrap;
         /* 수평정렬 */
-        justify-content: center;
+        justify-content: space-evenly;
         /* 수직정렬(여러줄) */
         align-content: center;
       }
@@ -168,6 +221,15 @@
         border: none;
       }
 
+      .info{
+        position: fixed;
+        bottom:0;
+        left: 0;
+        width:100vw;
+        padding:15px;
+        text-align: center;
+        background-color: #da041c;
+      }
 
 
     </style>
@@ -219,22 +281,12 @@
       </ol>
 
     </div>
-    
-    
-    <!-- <ol class="tit t1">
-      <li>L</li>
-      <li>O</li>
-      <li>T</li>
-      <li>T</li>
-      <li>E</li>
-    </ol>
-    <ol class="tit t2">
-      <li>W</li>
-      <li>O</li>
-      <li>R</li>
-      <li>L</li>
-      <li>D</li>
-    </ol> -->
+
+    <!-- 하단바 -->
+    <footer class="info">
+      <img src="./images/lotte_logo.gif" alt="하단로고">
+    </footer>
+
 
   </body>
 </html>
