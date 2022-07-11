@@ -99,6 +99,37 @@
         width:500px;
         height: 100px;
         border:5px double #fff;
+
+      }
+      /* 타이틀 하위 li 공통 */
+      .tit > li{
+        width: 50px;
+        height: 50px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        font: bold 14px/50px Verdana;
+        text-align: center;
+        color:#fff;
+        background-color: red;
+      }
+
+      /* 타이틀1 */
+      .t1{
+        /* 플렉스박스 */
+        display:flex;
+        justify-content:space-evenly;
+        /* 
+          justify-content 속성:border:
+          - 진행방향정렬속성 (justify 양쪽정렬의 뜻);
+          - content는 진행방향으로 여러개의 아이템요소가 있으니까 컨텐트임!
+          1) flex-start : 처음위치(기본값)
+          2) flex-end : 끝위치
+          3) center : 중앙
+          4) space-between : 아이템요소 양쪽끝에 붙고 사이간격
+          5) space-around : 아이템요소 양쪽간격 일정
+          6) space-evenly : 아이템요소 양쪽과 사이간격 일정
+          
+        */
       }
 
     </style>
