@@ -37,7 +37,7 @@
           - 자식요소를 flex:1로 설정하면 등분할 됨!
           - 자식요소의 높이값은 자동으로 부모의 높이값을 채운다!
         ************************************************************************/
-        flex-direction: row;
+        /* flex-direction: row; */
         /* 
           flex-direction 속성 : 진행방향과 순서를 정함
           1) row : 좌->우(기본값)
@@ -69,6 +69,14 @@
           3) flex-basis: 설정값(px, %, em, rem, vw 등)
           -> width 가로크기를 설정하는 속성
           -> 만약 0을 쓰면 속성값 없음!
+          ____________________________________________
+
+          [ 자식요소 속성 중 order란? ]
+          - 원하는 순서로 정해서 박스가 나열되게 함!
+          단, 부모 플렉스 박스에 flex-direction을 주지말것!(order쓰기 때문!)
+
+          소스참고:
+          https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_order_2
 
         */
       }
@@ -313,11 +321,11 @@
     <div id="wrap">
       <!-- 파티션박스 -->
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li style="order: 2;"></li>
+        <li style="order: 5;"></li>
+        <li style="order: 4;"></li>
+        <li style="order: 1;"></li>
+        <li style="order: 3;"></li>
       </ul>
       <!-- 타이틀박스1 -->
       <ol class="tit t1">
