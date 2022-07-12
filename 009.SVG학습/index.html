@@ -87,12 +87,22 @@
                 (트랜지션/애니메이션 설정 필수!)
             */
 
+        }
+        
+        /* 라인애니 공통 트랜지션 */
+        .sv{
             /* 트랜지션: 속시이지 */
             transition: stroke-dashoffset .4s ease-in-out;
         }
-        /* 컨텐츠 박스에 마우스 오버 시 */
-        .cbx:hover .c1{
+
+        /* 컨텐츠 박스에 마우스 오버 시 라인애니 공통 */
+        .cbx:hover .sv{
             stroke-dashoffset: 0;
+        }
+
+        /* 2. 블랙위도우 */
+        .avg2 svg{
+            background: url(images/black.jpg) no-repeat top/cover;
         }
 
         /* 사각형 */
@@ -102,12 +112,18 @@
             /* 선색 */
             stroke: black;
             /* 선끝처리 */
-            stroke-linecap: square;
+            stroke-linecap: round;
+            /* 
+                stroke-linecap 선끝옵션
+                1) butt - 끝에 중심선이 보임(기본값)
+                2) square - 끝에 사각형으로 덮음
+                3) round - 끝에 둥근모양으로 덮음
+            */
             /* 선두께 */
-            stroke-width: 10;
-            /* 데쉬선 : 50% * = 400% */
-            stroke-dasharray: 400%;
-
+            stroke-width: 20;
+            /* 데쉬선 : 50% * 8 = 400% */
+            stroke-dasharray: 15%;
+            stroke-dashoffset: 100%;
         }
     </style>
 </head>
@@ -150,7 +166,7 @@
         <section>
             <div class="cbx avg1">
                 <svg>
-                    <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-90,150,150)"></circle>
+                    <circle class="c1 sv" cx="150" cy="150" r="140" transform="rotate(-90,150,150)"></circle>
                 </svg>
             </div>
         </section>
@@ -158,17 +174,17 @@
         <section>
             <div class="cbx avg2">
                 <svg>
-                    <rect class="rt1" width="290" height="290" x="5" y="5"></rect>
+                    <rect class="rt1 sv" width="280" height="280" x="10" y="10"></rect>
                 </svg>
             </div>
         </section>
-        <!-- 3. 닥스 박스 : 삼각형 -->
+        <!-- 3. 닥스 박스 : 다각형(6각형) -->
         <section>
             <div class="cbx avg3">
                 
             </div>
         </section>
-        <!-- 4. 완다 박스 : 다각형(6각형) -->
+        <!-- 4. 완다 박스 : 자유곡선 -->
         <section>
             <div class="cbx avg4">
                 
