@@ -125,6 +125,32 @@
             stroke-dasharray: 15%;
             stroke-dashoffset: 100%;
         }
+
+        /* 3. 닥스 */
+        .avg3 svg{
+            background: url(images/doc.jpg) no-repeat top/cover;
+            /* 클리핑적용 - 다각형
+            polygon(x1 y1, x2 y2,...) 단위 반드시 쓸 것! */
+            clip-path: polygon(150px 0px, 300px 100px, 300px 200px, 150px 300px, 0px 200px, 0px 100px);
+            
+        }
+
+        /* 다각형 */
+        .pg1{
+            /* 채우기 */
+            fill:none;
+            /* 선색 */
+            stroke:#c68bff;
+            /* 선두께 */
+            stroke-width: 20;
+            /* 선끝처리 */
+            stroke-linecap: square;
+            /* 데쉬설정 50% * 6 */
+            stroke-dasharray: 300%;
+            stroke-dashoffset: 300%;
+            
+        }
+
     </style>
 </head>
 <body>
@@ -159,7 +185,28 @@
         [ rect 요소 : 사각형 ]
         - 가로(width), 세로(height), x축(x), y축(y)
 
+        [ polygon 요소 : 다각형 ]
+        - points 속성
+        - 표현법: <polygon points="x1,y1 x2,y2 ..."
+            -> x,y 좌표를 콤마로 구분하고 다른 좌표는 띄어쓰기로 구분함
 
+            [ path 요소 : 자유로운 선 ]
+            <path> 요소는 경로를 정의하는 데 사용됩니다.
+
+            경로 데이터에 대해 다음 명령을 사용할 수 있습니다.
+
+            M = 이동
+            L = 라인토
+            H = 수평선
+            V = 수직선
+            C = 곡선
+            S = 부드러운 곡선
+            Q = 2차 베지어 곡선
+            T = 부드러운 2차 베지어 곡선
+            A = 타원형 호
+            Z = 마지막점
+            참고: 위의 모든 명령은 소문자로도 표현할 수 있습니다.
+            대문자는 절대 위치를 의미하고 소문자는 상대적 위치를 의미합니다.
      -->
     <div class="wrap">
         <!-- 1. 아이언맨 박스 : 원 -->
@@ -181,13 +228,17 @@
         <!-- 3. 닥스 박스 : 다각형(6각형) -->
         <section>
             <div class="cbx avg3">
-                
+                <svg>
+                    <polygon class="pg1 sv" points="150,10 290,100 290,200 150,290 10,200 10,100"></polygon>
+                </svg>
             </div>
         </section>
         <!-- 4. 완다 박스 : 자유곡선 -->
         <section>
             <div class="cbx avg4">
-                
+                <svg>
+
+                </svg>
             </div>
         </section>
     </div>
