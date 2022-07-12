@@ -148,13 +148,13 @@
             stroke-dashoffset: 100%;
         }
 
-        /* 3. 닥스 */
+/* 3. 닥스 */
         .avg3 svg{
             background: url(images/doc.jpg) no-repeat top/cover;
             /* 클리핑적용 - 다각형
-            polygon(x1 y1, x2 y2,...) 단위 반드시 쓸 것! */
-            clip-path: polygon(150px 0px, 300px 100px, 300px 200px, 150px 300px, 0px 200px, 0px 100px);
-            
+            polygon(x1 y1,x2 y2,...)
+            단위 반드시 쓸것! */
+            clip-path: polygon(50% 0,100% 33%,100% 66%,50% 100%,0 66%,0 33%);
         }
 
         /* 다각형 */
@@ -206,6 +206,18 @@
             transform: translate(-50%, -50%);
             /* 정중앙이동 */
             z-index: 999;
+        }
+
+        .clipSVG{
+            width:var(--sval1);
+            height:var(--sval1);
+        }
+
+        /* 미디어쿼리 */
+        @media screen and (max-width:1000px) {
+            :root{
+                --sval1:200px
+            }
         }
 
 
