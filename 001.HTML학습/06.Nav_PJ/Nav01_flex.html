@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>유형1. 가로네비 서브별 드롭다운 세로형</title>
+    <title>유형1. 가로네비 서브별 드롭다운 세로형 - flex</title>
     <style>
       /* 초기화 */
       html,
@@ -35,22 +35,23 @@
       }
       /* ul 초기화 */
       .gnb ul {
+       display: flex;
        width: 800px;
        margin: 0 auto;
       }
       /* 가상요소로 clear설정하기 */
-      .gnb ul::after {
+      /* .gnb ul::after {
         content:'';
         display: block;
         clear: both;
-      }
+      } */
       /* 상위 li 리스트요소 */
       .gnb>ul>li{
         width: 200px;
         /* height: 40px; */
         text-align: center;
         /* outline: 1px dashed blue; */
-        float: left;
+        /* float: left; */
         /* box-sizing: border-box; */
       }
       /* li 사이에 구분선 넣기 */
