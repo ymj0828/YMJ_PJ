@@ -157,6 +157,7 @@
             white-space: nowrap;
             /* 줄바꿈방지 */
             color: #222;
+            border:none;
 
             margin: 0;
             padding: 0;
@@ -183,11 +184,7 @@
             height: 100vh;
             /* 트랜지션 */
             transition: .3s ease-out .2s;
-        
-        /* 트랜지션 */
-        transition: .3s ease-out .2s;
         }
-
 
         /* 햄버거버튼 */
         .ham {
@@ -228,11 +225,6 @@
             transition: .2s .2s;
         }
 
-        /* 액션상태일 때 가로크기확장! */
-        .gbx.on{
-            width: 500px;
-        }
-
         /* 막대1 */
         .ham span:first-child{
             transform: translate(1px,-4px);
@@ -262,7 +254,7 @@
             border-radius: 50%;
 
             /* 트랜지션 : 속시이지 */
-            transition: .2s,left .2s .2s;
+            transition: .2s, left .2s .2s;
         }
 
         /* 액션상태에서 햄버거 오버시 */
@@ -292,6 +284,8 @@
 <body>
     <h1>유형8.숨긴네비 고정전체창형</h1>
 
+    <!-- GNB 네비게이션 -->
+
     <!-- 숨김 네비게이션 박스 -->
     <section class="gbx">
         <!-- 햄버거버튼 -->
@@ -301,7 +295,6 @@
         </button>
         <!-- 컨텐츠박스 -->
         <div class="gcont">
-            <!-- GNB 네비게이션 -->
             <nav class="gnb">
                 <ul class="fll">
                     <li>
