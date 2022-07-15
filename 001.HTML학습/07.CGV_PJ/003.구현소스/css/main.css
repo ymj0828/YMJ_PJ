@@ -23,6 +23,8 @@ body *{
 /**************************** 1. 상단영역 ****************************/
 /* 속박스 */
 .top{
+    position: relative;
+    /* 부모자격 - .gnb */
     height: 80px;
     background: url(../images/curtain.jpg) repeat-x;
 }
@@ -46,13 +48,99 @@ body *{
     }
 } /* 키프레임 */
 
+/* 1-2. GNB메뉴 */
+.gnb{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    /* 부모는? .top */
+}
+/* GNB ul */
+.glist{
+    display: flex;
+}
+/* GNB li 리스트 */
+.glist>li{
+    font-family: 'Jua', sans-serif;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+
 
 
 /**************************** 2. 메인영역 ****************************/
 /* 속박스 */
 .cont{
-    height: 788px;
+    position: relative;
+    /* 부모자격 */
+    /* height: 788px; -> 비율유지박스 높이값 불필요 */
     background: url(../images/bg.jpg) no-repeat top/100%;
+}
+/* 비율유지 가상요소 */
+.cont::before{
+    content:'';
+    display: block;
+    padding-top: 65.66%;
+    /* 블록자식요소의 패딩탑을 %로 주면 부모박스 가로크기에 대한 비가 성립한다
+    100%는 1:1비율
+    
+    [ 비율계산하기 ]
+    이미지 비율로 박스 비율을 적용함
+    1200px : 788px = 100 : x
+    x = 788 * 100 / 1200px
+      = 65.66%
+
+
+    */
+}
+/* 2-1. 스크린박스 */
+#screen{
+    position: absolute;
+    top: 17.3%;
+    left: 21.4%;
+    width: 58.4%;
+    height: 50.4%;
+    /* 부모는? .cont */
+    background-color: #000;
+}
+/* 유튜브 아이프레임 */
+#screen iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 2-2. 예고편 선택메뉴 */
+.mlist{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    transform: translateX(-50%);
+    /* 가로정중앙이동 */
+}
+/* 예고편 ul */
+.mlist ul{
+    display: flex;
+}
+/* 예고편 li */
+.mlist>ul>li{
+    width: 99px;
+    height: 140px;
+    margin-left: 10px;
+}
+/* 두번째 li부터 끝까지만 왼쪽마진 */
+.mlist>ul>li+li{
+    margin-left: 10px;
+}
+
+
+/* 포스터 이미지 */
+.mlist img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지를 비율유지하여 박스에 채움 */
 }
 
 /**************************** 3. 하단영역 ****************************/
