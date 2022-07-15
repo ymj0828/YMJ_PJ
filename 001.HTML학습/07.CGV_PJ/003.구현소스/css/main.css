@@ -10,9 +10,9 @@ body{
 }
 
 /* 공사중표시 */
-body *{
+/* body *{
     outline: 1px dotted lime;
-}
+} */
 
 /* 공통클래스 */
 .ibx{
@@ -114,7 +114,9 @@ body *{
 /* 2-2. 예고편 선택메뉴 */
 .mlist{
     position: absolute;
-    bottom: 10px;
+    width: 54%;
+    /* 비율유지박스 자식으로 %설정 */
+    bottom: 7%;
     left: 50%;
     transform: translateX(-50%);
     /* 가로정중앙이동 */
@@ -125,10 +127,23 @@ body *{
 }
 /* 예고편 li */
 .mlist>ul>li{
-    width: 99px;
-    height: 140px;
-    margin-left: 10px;
+    position: relative;
+    /* 부모자격 */
+    overflow: hidden;
+    /* 부모자격이 있는 요소에서 숨기기가 적용됨
+    중간에 자격이 없으면 숨기기 줘도 소용없음 */
+    
+    /* 플렉스 자식요소 flex속성으로 등분할 설정 */
+    flex: 1;
+    /* width: 99px;
+    height: 140px; */
 }
+
+/* 오버 시 아웃라인 보이기 */
+.mlist>ul>li:hover{
+    outline: 1px solid aqua;
+}
+
 /* 두번째 li부터 끝까지만 왼쪽마진 */
 .mlist>ul>li+li{
     margin-left: 10px;
@@ -142,9 +157,108 @@ body *{
     object-fit: cover;
     /* 이미지를 비율유지하여 박스에 채움 */
 }
+/* 영화정보박스 */
+.movtxt{
+    /* 수직방향 플렉스박스로 중앙정렬 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    top: 100%;/* 높이값만큼 내려가 있음 */
+    width: 100%;
+    height: 100%;
+    /* 부모는? 싸고있는 li */
+
+    /* 반투명배경색 */
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /* 글자셋팅 */
+    font-family: 'Cute Font', cursive;
+    font-size: min(1.3vw,14px);
+    /* 글자최대크기 14px, 보이는 가로크기 1.3% */
+    line-height: 2;
+    text-align: center;
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+
+    /* 트랜지션: 속시이지 */
+    transition: top .3s ease-out;
+}
+
+/* li에 오버시 영화정보 보이기 */
+.mlist ul>li:hover .movtxt{
+    top: 0;
+
+}
+
+/* 첫번째 li 영화제목 */
+.movtxt li:first-child{
+    color:aqua;
+    font-size: min(1.5vw,17px);
+    /* 최대 17px, 화면가로의 1.5% */
+    letter-spacing: -1px;
+}
 
 /**************************** 3. 하단영역 ****************************/
 /* 속박스 */
 .info{
+    position: relative;
+    /* 부모자격 - .sns */
     height: 100px;
+}
+
+/* 3-1. 회사정보 */
+.info address{
+    color:#c3c3c3;
+    font-style: normal;
+    /* address 기본 이탤릭해제 */
+    font-family: 'Cute Font', cursive;
+    font-size: 18px;
+    line-height: 20px;
+    /* 안쪽여백 */
+    padding-top: 20px;
+    padding-left: 20px;
+}
+/* 하단로고 이미지 */
+.info img{
+    float: left;
+    /* 이미지 자신은 왼쪽, 글자는 오른쪽 */
+    margin-right: 20px;
+}
+
+/* 3-2. sns 박스 */
+.sns{
+    position: absolute;
+    top: 35px;
+    right: 20px;
+
+    /* 플렉스박스 */
+    display: flex;
+}
+.sns li{
+    width: 34px;
+    height: 34px;
+    background: url(../images/sprites_logo.png) no-repeat ;
+    margin: 0 2px;
+    /* 필터: 흑백적용 */
+    filter:grayscale(100%);
+    /* 손가락모양 */
+    cursor:pointer;
+}
+/* 오버시칼라 */
+.sns li:hover{
+    filter: grayscale(0);
+}
+/* 페이스북 */
+.sns li:first-child{
+    background-position: -509px -429px;
+}
+/* 트위터 */
+.sns li:nth-child(2){
+    background-position: -550px -429px;
+}
+/* 인스타그램 */
+.sns li:last-child{
+    background-position: -592px -429px;
 }
