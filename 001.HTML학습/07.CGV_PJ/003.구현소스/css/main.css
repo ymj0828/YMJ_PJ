@@ -115,7 +115,7 @@ body *{
 .mlist{
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 50%;
     transform: translateX(-50%);
     /* 가로정중앙이동 */
 }
