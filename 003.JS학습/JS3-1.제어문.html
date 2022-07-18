@@ -68,6 +68,7 @@
         }
 
         // 할당된 변수값 확인
+
         console.log("msg:",msg, "\njc:",jc,"\nbgp:",bgp);
         // 역슬래쉬n(\n) -> 줄바꿈
 
@@ -78,7 +79,10 @@
         jexp.style.color = jc;
 
         // 6. 칭찬스티커 배경위치변경
-        jshow.style.backgroundPosition
+        jshow.style.backgroundPosition = bgp;
+
+    } //////////////////// jumsu 함수 //////////////////////////
+       ////////////////////////////////////////////////////////////
 
 
         /************************************************************* 
@@ -127,9 +131,32 @@
 
         *************************************************************/
 
-       } //////////////////// jumsu 함수 //////////////////////////
-       ////////////////////////////////////////////////////////////
     </script>
+        <style>
+            /* 칭찬스티커 */
+            #jshow {
+                 position: absolute;
+                 top: -19px;
+                 left: 133px;
+                 width: 322px;
+                 height: 322px;
+                 background: url(./images/ifshow.jpg) no-repeat;
+                 /* 배경포지션으로 처음에 안보이게함! */
+                 background-position: 322px 0;
+                 /* 크기줄이기 - 30%크기 */
+                 transform: scale(0.3);
+                 /* 트랜지션: 속시이지 */
+                 transition: all 0.4s ease-out;
+             }
+     
+             /* IR(배경이미지 설명 숨기기) */
+             .ir {
+                 display: block;
+                 width: 0;
+                 height: 0;
+                 overflow: hidden;
+             } 
+         </style>
 
 
 
@@ -147,7 +174,7 @@
 
     <!-- 칭찬스티커 -->
     <div id="jshow">
-        <span class="ir"></span>
+        <span class="ir">칭찬스티커</span>
     </div>
 
     <!-- 
