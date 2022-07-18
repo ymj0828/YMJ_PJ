@@ -51,7 +51,7 @@ body{
 /* 1-2. GNB메뉴 */
 .gnb{
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     right: 15px;
     /* 부모는? .top */
     z-index: 999;
@@ -59,6 +59,9 @@ body{
 }
 /* GNB ul */
 .glist{
+    position: relative;
+    z-index: 1;
+    /* 영사기보다 위 */
     display: flex;
 }
 /* GNB li 리스트 */
@@ -68,6 +71,8 @@ body{
     font-family: 'Jua', sans-serif;
     font-size: 20px;
     padding: 0 10px;
+    padding-bottom: 5px;
+    /* 서브메뉴와 이어지게 하단공간 확장 */
 }
 /* GNB 서브메뉴 */
 .smenu{
@@ -131,13 +136,83 @@ body{
     content: '😍';
     float: right;
 }
+/* "예매" 하위메뉴 이모지 */
+.glist>li:nth-child(2) .smenu li a:hover::after{
+    content: '🎫';
+    float: right;
+}
+.glist>li:nth-child(3) .smenu li a:hover::after{
+    content: '🎭';
+    float: right;
+}
+.glist>li:nth-child(4) .smenu li a:hover::after{
+    content: '🎁';
+    float: right;
+}
 
 /* 서브메뉴 중 li 보더탑 구분선 class */
 .bdt{
     border-top: 1px solid #ccc;
 }
 
+/* 영사기박스 */
+#cam{
+    position: absolute;
+    bottom: -9px;
+    right: -61px;
+}
+/* 영사기 이미지 */
+#cam img{
+    position: relative;
+    z-index: 1;
+    /* 빔박스 보다 위
+    포지션이 static이 아니여야 적용됨 */
+    width: 50px;
 
+    /* 영사기 회전 */
+    transform: rotate(25deg);
+    /* 트랜지션: 속시이지 - 돌아올 때 0.3초 지연 */
+    transition: .5s ease-out .3s;
+}
+/* GNB에 마우스 오버 시 영사기 회전하기 */
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    /* 오버 시엔 트랜지션 지연시간 없음 */
+    transition-delay: 0s;
+}
+/* 빔박스 */
+.beam{
+    position: absolute;
+    top: -16px;
+    right: 9px;
+    width: 0; /* 200px -> 오버 시 */
+    height: 70px;
+    /* outline: 1px dotted yellow; */
+    background: url(../images/bim.png) no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+
+    /* 트랜지션: 속시이지 */
+    transition: width .3s linear;
+    /* linear 등속도 */
+}
+/* GNB에 마우스 오버 시 영사기 쏘기 */
+.gnb:hover .beam{
+    width:200px;
+    /* 트랜지션 지연시간 셋팅 */
+    transition-delay: .5s;
+    /* 애니메이션: 이시이지반방마 */
+    animation: beamAni .4s linear infinite alternate;
+}
+/* 빔이 너울너울 거리도록 애니메이션 키프레임 */
+@keyframes beamAni{
+    from{
+        opacity: 0.9;
+    }
+    to{
+        opacity: 0.5;
+    }
+} /* 키프레임 */
 
 /**************************** 2. 메인영역 ****************************/
 /* 속박스 */
@@ -268,6 +343,32 @@ body{
     font-size: min(1.5vw,17px);
     /* 최대 17px, 화면가로의 1.5% */
     letter-spacing: -1px;
+}
+
+/* 영화보러 가는 길 애니박스 */
+.goMV{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 144px;
+    height: 80px;
+    /* outline: 1px dashed yellow; */
+}
+/* 글자커버 */
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/curtain.jpg) no-repeat;
+    
+    /* 글자설정 */
+    font-family: 'Cute Font', cursive;
+    color:#fff;
+    font-size: 20px;
+    line-height: 80px;
+    text-align: center;
 }
 
 /**************************** 3. 하단영역 ****************************/
