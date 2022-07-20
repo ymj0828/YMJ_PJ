@@ -67,17 +67,97 @@
             transform: rotateY(180deg) translateZ(150px);
         }
 
-        /* 4. 오른쪽면 */
+        /* 4. 왼쪽면 */
         .cube span:nth-child(4){
             background: url(images/cityMain.jpg) no-repeat center/cover;
             /* 화면방향(Z축) */
             transform: rotateY(-90deg) translateZ(150px);
         }
+
+        /* 5. 윗면 */
+        .cube span:nth-child(5){
+            background: url(images/citys.jpg) no-repeat center/cover;
+            /* 화면방향(Z축) */
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        /* 6. 아랫면 */
+        .cube span:nth-child(6){
+            background: url(images/img2.jpg) no-repeat center/cover;
+            /* 화면방향(Z축) */
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        /* 애니메이션 클래스 */
+        .cube-ani{
+            /* 애니메이션 : 이시이지반방마 */
+            animation: cubeAni 4s linear infinite;
+            /* 처음에 멈춰있기 */
+            animation-play-state: paused;
+        }
+        .cube-ani.on{
+            /* 돌아라! */
+            animation-play-state: running;
+        }
+
+        /* 회전키프레임 */
+        @keyframes cubeAni {
+            to{
+                transform: rotateX(370deg) rotateY(-330deg) rotateZ(360deg);
+                /* 
+                    x축 양의 방향으로 10도에서 출발
+                    양의 방향 360도+10도+370도
+                    음의 방향 -360도+10도=-350도
+
+                    y축 양의 방향으로 30도에서 출발
+                    양의 방향 360도+30도+390도
+                    음의 방향 -360도+30도=-330도
+
+                    -> rotateZ() - z축회전도 가능함
+                */
+            }
+        } /* 키프레임 */
+
+        /* 버튼박스 */
+         .btns button{
+            font-size: 40px;
+            border-radius: 10px;
+         }
     </style>
+    <script>
+        /************************************************************ 
+            함수명: goR
+            기능: 큐브 돌기/멈추기
+        ************************************************************/
+       function goR(){
+            // 1. 호출확인
+            console.log('나야나!');
+            // 2. 대상선정: 큐브 - .cube / 버튼 - .btns button
+            var cube = document.querySelector('.cube');
+            var btns = document.querySelector('.btns button');
+
+            // 3. 클래스 넣기/빼기
+            // 클래스 제어 내장객체
+            // classList
+            // 이 객체가 메서드를 가짐
+            // (1)add(클래스명)
+            // (2)remove(클래스명)
+            // (3)toggle(클래스명) -> 유무에 따라 
+            cube.classList.toggle('on')
+
+       } //////////////////// goR함수 //////////////////////////////////
+       ////////////////////////////////////////////////////////////////////
+    </script>
 </head>
 <body>
+
+    <!-- 버튼박스 -->
+    <div class="btns">
+        <button onclick="goR()">돌아!</button>
+    </div>
+
     <!-- 큐브 -->
-    <div class="cube">
+    <div class="cube cube-ani">
         <span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
 </body>
