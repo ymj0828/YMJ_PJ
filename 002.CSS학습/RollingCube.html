@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Cube 3D Animation</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        /* 전체배경 */
+        body{
+            background-image:linear-gradient(to bottom, #777 30%, #ccc 70%);
+        }
+        /* 큐브 */
+        .cube{
+            position: absolute;
+            top:calc(50% - 150px);
+            left:calc(50% - 150px);
+            width: 300px;
+            height: 300px;
+
+            /* 
+                [ 입체로 설정하기 ]
+                - 입체로 설정할 요소의 부모박스에 아래와 같이 설정한다
+            
+                transform-style:preserve-3d;
+                - 기본값 flat, 즉 2D
+                - preserve-3d는 3D 전환설정
+            */
+            transform-style: preserve-3d;
+
+            /* 입체를 잘보이게 x,y축으로 약간 회전하기 */
+            transform: rotateX(10deg) rotateY(30deg);
+        }
+        /* 큐브각면 공통 */
+        .cube span{
+            position: absolute;
+            /* 앱솔루트는 span도 자동 block! */
+            width: 100%;
+            height: 100%;
+            /* 부모는? .cube */
+            opacity: 0.8;
+            outline: 2px solid #000;
+        }
+
+        /* 1. 앞면 */
+        .cube span:nth-child(1){
+            background: url(images/newyorkCity.jpg) no-repeat right/auto 105%;
+            /* 화면방향(Z축) */
+            transform: translateZ(150px);
+        }
+
+        /* 2. 오른쪽면 */
+        .cube span:nth-child(2){
+            background: url(images/seoulCity.jpg) no-repeat center/cover;
+            /* 화면방향(Z축) */
+            transform: rotateY(90deg) translateZ(150px);
+        }
+
+        /* 3. 오른쪽면 */
+        .cube span:nth-child(3){
+            background: url(images/parisCity.jpg) no-repeat center/cover;
+            /* 화면방향(Z축) */
+            transform: rotateY(180deg) translateZ(150px);
+        }
+
+        /* 4. 오른쪽면 */
+        .cube span:nth-child(4){
+            background: url(images/cityMain.jpg) no-repeat center/cover;
+            /* 화면방향(Z축) */
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 큐브 -->
+    <div class="cube">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+</body>
+</html>
