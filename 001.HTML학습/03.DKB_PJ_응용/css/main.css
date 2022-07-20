@@ -173,45 +173,7 @@ body::after{
    width: 100%;
    border-radius: 50%;
 }
-/* 캐릭터 이름이미지 박스 span */
-.ci span{
-   position: absolute;
-   bottom: 4%;
-   width: 100%;
-   /* 부모는? .cat */
-   display: block;
-   /* 원래 inline이지만 출신변경! */
-   text-align: center;
-   /* 블록요소 내부의 인라인 컨텐츠를 중앙에 오게함! */
-   
-   /* 마진탑으로 위치이동하기 X -> 포지션으로 변경! */
-   /* margin-top: -20%; */
-   /* 
-      마진값을 마이너스로 주면 위의 요소와 겹칠 수 있다.
-      포지션을 쓰지 않고 겹치게 하는 방법이다.
-      일반적인 위치이동은 마진으로 함.
-      단위로 %를 사용하면 마진에 있어서
-      margin-top 은 기존 부모박스이 height값에 대한 %이고
-      margin-left 는 기존 부모박스이 width값에 대한 %이다!
-   */
-}
 
-/* 캐릭터 이름 이미지 */
-.ci span img{
-   width: 40%;
-}
-/* 캐릭터 이름 이미지 첫번째 숨김! */
-.ci span img:first-child{
-   display: none;
-}
-/* 캐릭터 이름 이미지 첫번째 .cat에 오버시 보이기 */
-.cat:hover .ci span img:first-child{
-   display: inline;
-}
-/* 캐릭터 이름 이미지 두번째 .cat에 오버시 숨기기 */
-.cat:hover .ci span img:last-child{
-   display: none;
-}
 
 /* 캐릭터 설명박스 */
 .cd{
