@@ -46,5 +46,41 @@ html,body{
     transform: translate(-50%, -50%);
     /* 트랜스폼 정중앙이동 */
 
-    outline: 4px dotted lime;
+    /* outline: 4px dotted lime; */
 }
+/* click here! 글자박스 */
+#enter span{
+    display: block;
+    text-align: center;
+
+    /* 글자설정 한번에 */
+    font:bold min(4vw,34px)/1.3 'Audiowide',cursive;
+    /* font:스두크/줄체; */
+
+    /* 트랜지션: 속시이지 */
+    transition:all .4s ease-out .2s;
+}
+/* 오버시 글자박스 */
+#enter:hover span{
+    transform: scale(2);
+    color:chartreuse;
+}
+/* 엔터박스 로고 이미지 */
+#enter img{
+    /* 트랜지션: 속시이지 */
+    transition: all .4s ease-out;
+}
+/* 오버시 로고 이미지 */
+#enter:hover img{
+    transform: rotate(-15deg) scale(1.5);
+}
+
+/* 미디어쿼리 600px 이하 시작 */
+@media screen and (max-width:600px) {
+    /* click here 글자박스 */
+    #enter span{
+        font-size: 7vw;
+        white-space: nowrap;
+    }
+}
+/* 미디어쿼리 600px 이하 끝 */
