@@ -1,22 +1,32 @@
 @charset "utf-8";
-/* 도깨비 회원가입 페이지 CSS - memeber.css */
+/* 도깨비 PJ 회원가입 - member.css */
 
-/* 공통사용 외부CSS 파일합치기 */
-@import url(reset.css);
-@import url(core.css);
-@import url(common.css);
-
-/* 컨텐츠 영역 겉박스 */
-#cont {
-    background-color: #ececec;
+/* 컨텐츠 영역 속박스 */
+.cont{
+    min-height: 600px;
+    padding: 15px;    
+    padding-bottom: 100px;
 }
 
-/* 컨텐츠 영역 최소높이 */
-.cont {
-    min-height: 600px;
-    padding: 15px 15px 100px !important;
-    /* 800px이하 미디어쿼리보다 우선적용위해
-    !important 사용해서 최우선적용함! */
+/* 1. 타이틀 */
+.stit{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 5rem;
+    text-align: center;
+    padding: 40px 0 20px;
+    font-weight: normal;
+}
+/* 2. 컨텐츠박스 */
+.scont{
+    max-width: 700px;
+    min-height: 275px;
+    margin: 0 auto;
+    border: 2px solid #737373;
+    border-radius: 10px;
+    /* 크기유지 */
+    box-sizing: border-box;
+    padding: 30px 50px;
+    background-color: #fff;
 }
 
 /* 포커스 아웃라인 제거
@@ -24,6 +34,7 @@
 input:focus,
 select:focus {
     outline: none;
+    /* outline: 2px solid aqua; */
 }
 
 /* 공통 메시지 박스 */
@@ -49,29 +60,6 @@ select:focus {
     color: green;
 }
 
-/* 1. 로그인 타이틀 */
-.stit {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 50px;
-    padding: 40px 0 20px;
-    text-align: center;
-    font-weight: normal;
-}
-
-/* 로그인 박스 */
-.scont {
-    position: relative;
-    /* 부모자격 */
-    max-width: 700px;
-    min-height: 464px;
-    margin: 0 auto;
-    border: 2px solid #737373;
-    border-radius: 10px;
-    /* 크기유지 */
-    box-sizing: border-box;
-    padding: 30px 50px;
-    background-color: #fff;
-}
 
 /* 리스트 ul */
 .scont ul {

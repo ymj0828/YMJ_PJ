@@ -1,37 +1,24 @@
 @charset "utf-8";
 /* 도깨비 PJ 로그인 - login.css */
 
-/* 공통사용 외부CSS 파일합치기 */
-@import url(reset.css);
-@import url(core.css);
-@import url(common.css);
-
-/* 컨텐츠 영역 겉박스 */
-#cont {
-    background-color: #ececec;
-}
-
-/* 컨텐츠 영역 최소높이 */
-.cont {
+/* 컨텐츠 영역 속박스 */
+.cont{
     min-height: 600px;
-    padding: 15px !important;
-    /* 800px이하 미디어쿼리보다 우선적용위해
-    !important 사용해서 최우선적용함! */
+    padding: 15px;
 }
 
-/* 1. 로그인 타이틀 */
-.stit {
+/* 1. 타이틀 */
+.stit{
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 50px;
-    padding: 40px 0 20px;
+    font-size: 5rem;
     text-align: center;
+    padding: 40px 0 20px;
     font-weight: normal;
 }
-
-/* 로그인 박스 */
-.scont {
+/* 2. 컨텐츠박스 */
+.scont{
     position: relative;
-    /* 부모자격 */
+    /* 부모자격 - .btnbx */
     max-width: 700px;
     min-height: 275px;
     margin: 0 auto;

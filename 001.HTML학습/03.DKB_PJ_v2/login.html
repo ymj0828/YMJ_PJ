@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <!-- 모바일 페이지 뷰포트필수! -->
+    <!-- 모바일 뷰포트 필수! -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>쓸쓸하고 찬란하신(神) 도깨비 - 로그인페이지</title>
-    <link rel="stylesheet" href="css/login.css">
-    <!-- 외부CSS하나만 불러도 main.css에서 import
-    하고 있는 3개의 기본CSS가 같이 들어옴! -->
-    <link rel="stylesheet" href="css/media.css">
-    <!-- 미디어쿼리 css 외부파일은 반드시 기존
-    CSS 파일 아래쪽에 호출해야 덮어씀! -->
-    <!-- 공통외부JS -->
-    <script src="js/common.js"></script>
+    <!-- meta:description 사이트 설명
+    (구글검색엔진은 이것만 수집함) -->
+    <meta name="description"
+        content="불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한 동거를 시작한 기억상실증 저승사자. 그런 그들 앞에 &#39;도깨비 신부&#39;라 주장하는 &#39;죽었어야 할 운명&#39;의 소녀가 나타나며 벌어지는 神비로운 낭만 설화." />
+    <!-- meta:keywords 사이트 키워드
+    일반 검색엔진에서 키워드 수집에 사용 -->
+    <meta name="keywords" content="도깨비, 도깨비,공유,김은숙,김고은,이동욱,유인나,육성재,금토드라마" />
+    <title>도깨비 - 로그인페이지</title>
+    <!-- 메인페이지 외부 CSS만 호출함(공통CSS는 import됨) -->
+    <link rel="stylesheet" href="./css/sub.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/media.css">
+    
+    <!-- 외부JS파일 불러오기 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/linksys.js"></script>
 </head>
 
 <body class="scbar">
     <!-- 1. 상단영역 -->
     <div id="top">
-        <header class="inbox top">
+        <header class="ibx top">
             <!-- 1-1. 메인로고 -->
-            <h1 id="logo">
-                <a href="#">
+            <h1 class="logo">
+                <a href="index.html">
                     <img src="images/tvnlogo2.png" alt="tvN로고">
-                    <span class="ir">메인</span>
                 </a>
             </h1>
             <!-- 1-2. 탑메뉴 -->
             <aside class="tmenu">
-                <ul class="clb">
+                <!-- 플렉스박스 -->
+                <ul class="fbx">
                     <li>
                         <a href="#">로그인</a>
                     </li>
@@ -37,23 +45,25 @@
                         <a href="#">회원가입</a>
                     </li>
                     <li>
-                        <ol class="sns clb">
+                        <!-- sns메뉴 -->
+                        <!-- 플렉스박스 -->
+                        <ol class="sns fbx">
                             <li>
-                                <a href="#">
+                                <a href="#" title="트위터 바로가기">
                                     <span class="ir">
                                         트위터 바로가기
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" title="인스타그램 바로가기">
                                     <span class="ir">
                                         인스타그램 바로가기
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" title="페이스북 바로가기">
                                     <span class="ir">
                                         페이스북 바로가기
                                     </span>
@@ -62,12 +72,13 @@
                         </ol>
                     </li>
                 </ul>
-            </aside>
 
+            </aside>
             <!-- 1-3. GNB메뉴 -->
-            <nav class="gnb">
-                <ul>
-                    <li class="bgbx m1">
+            <nav class="gnb">                
+                <!-- 플렉스박스+가로중앙 -->
+                <ul class="fbx jcc">
+                    <li class="sm">
                         <a href="#">프로그램 소개</a>
                         <!-- 서브메뉴 -->
                         <div class="smenu">
@@ -87,7 +98,7 @@
                     <li>
                         <a href="#">미리보기</a>
                     </li>
-                    <li class="bgbx m2">
+                    <li class="sm">
                         <a href="#">동영상</a>
                         <!-- 서브메뉴 -->
                         <div class="smenu">
@@ -107,7 +118,7 @@
                             </ol>
                         </div>
                     </li>
-                    <li class="bgbx m3">
+                    <li class="sm">
                         <a href="#">사진첩</a>
                         <!-- 서브메뉴 -->
                         <div class="smenu">
@@ -129,17 +140,28 @@
                     </li>
                 </ul>
             </nav>
-            <!-- 모바일용 햄버거버튼 : 햄버거모양(ㄷ한자키) -->
-            <button class="ham"></button>
+
+            <!-- 햄버거버튼 -->
+            <button class="ham" onclick="document.body.classList.toggle('on')"></button>
         </header>
     </div>
     <!-- 2. 메인영역 -->
     <div id="cont">
-        <main class="inbox cont">
-            <!-- 1. 로그인 타이틀 -->
+        <main class="cont ibx">
+            <!-- 2-1.타이틀 -->
             <h2 class="stit">Log In</h2>
-            <!-- 2. 로그인 박스 -->
+            <!-- 2-2.컨텐츠박스 -->
             <section class="scont">
+                <!-- form 요소 : 
+                    입력데이터를 전송하기위한 요소
+                    속성
+                    action - 전송할 처리페이지
+                    method - post : post방식 전달설정
+                            get : get방식 전달설정
+
+                    (get방식:url로 키=값 쌍으로 데이터전달)
+                    (post방식:페이지로 데이터를 전달하는 숨김방식)
+                -->
                 <form action="process.php" method="post" class="logF">
                     <!-- 아이디박스 -->
                     <div class="minput">
@@ -154,6 +176,9 @@
                     <!-- 버튼영역 -->
                     <div class="btnbx">
                         <input type="submit" id="sbtn" value="LOGIN">
+                        <!-- type-"submit" 서브밋버튼
+                        전체 form요소의 데이터를 action
+                        페이지로 전달함! -->
                     </div>
                     <!-- 기타링크 -->
                     <div class="addbx">
@@ -171,18 +196,17 @@
                         <a href="#">비밀번호찾기</a> | 
                         <a href="#">회원가입</a>
                     </div>
-
-
                 </form>
             </section>
         </main>
     </div>
     <!-- 3. 하단영역 -->
     <div id="info">
-        <footer class="inbox info">
-            <!-- 3-1. 하단추가정보링크 -->
-            <div class="blink">
-                <ul class="clb">
+        <footer class="ibx info">
+            <!-- 3-1. 하단링크 -->
+            <div class="blink">                
+                <!-- 플렉스박스+가로중앙 -->
+                <ul class="fbx jcc">
                     <li>
                         <a href="#">법적고지</a>
                     </li>
@@ -203,25 +227,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- 3-2. 브랜드 바로가기 -->
-            <div class="brand">
-                <select name="sel" id="sel">
-                    <option value="init">브랜드 바로가기</option>
-                    <option value="tvn">tvN</option>
-                    <option value="ocn">OCN</option>
-                    <option value="mnet">MNET</option>
-                </select>
-                <!-- 
-                    select 요소 : 지정된 값을 선택하는 입력요소
-                    - 하위필수요소 -> option요소 : 각 선택항목
-                    -> 유의사항 : 값을 선택할 경우 option의
-                    value속성값을 JS등에서 읽어간다. 그런데
-                    value를 안 쓸 수도 있는데 안쓰게되면
-                    꺽쇠사이에 있는 데이터를 읽어간다!
-                    
-                 -->
-            </div>
-            <!-- 3-3. 회사주소박스 -->
+            <!-- 3-2. 회사정보 -->
             <div class="addr">
                 <address>
                     (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br>
@@ -229,12 +235,31 @@
                     © CJ ENM. All Rights Reserved.
                 </address>
             </div>
-            <!-- 3-4. 하단로고박스 -->
+            <!-- 3-3. 하단로고 -->
             <div class="blogo">
                 <img src="images/blogo.png" alt="하단로고">
             </div>
+            <!-- 3-4. 바로가기 -->
+            <div class="brand">
+                <select name="sel" id="sel">
+                    <option value="init">브렌드 바로가기</option>
+                    <option value="tvn">tvN</option>
+                    <option value="ocn">OCN</option>
+                    <option value="mnet">MNET</option>
+                </select>
+                <!-- 
+                    [ select 요소 ]
+                    - 지정된 값을 선택하는 입력요소
+                    - 하위필수요소 : option - 각 선택항목
+                    - 유의사항: 값을 선택할 경우 선택값은
+                    option 요소의 속성인 value값을 읽어감
+                    단, value를 안쓸 수 있는데 안쓰면
+                    내부테이터를 읽어감!
+                 -->
+            </div>
         </footer>
     </div>
+
 </body>
 
 </html>
