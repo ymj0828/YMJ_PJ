@@ -28,3 +28,9 @@
     padding: 60px 15px;
     background-color: #fff;
 }
+
+/* 미디어쿼리 1050 이하 시작 */
+@media screen and (max-width:1050px) {
+    /* 두번재 이후 항목 지우기 */
+    #drama 
+}
