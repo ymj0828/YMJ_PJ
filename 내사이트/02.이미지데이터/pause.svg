@@ -1,0 +1,7 @@
+<svg id="ico_pause" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<!--    <circle cx="32" cy="32" r="32" fill="#fff" opacity="0.35"/>-->
+    <g transform="translate(24.431 22.978)">
+        <path d="M890.667,3579.793a3,3,0,0,1-3-3V3558a3,3,0,0,1,6,0v18.793A3,3,0,0,1,890.667,3579.793Z" transform="translate(-890.667 -3558)" fill="#fff"/>
+        <path d="M890.667,3579.793a3,3,0,0,1-3-3V3558a3,3,0,0,1,6,0v18.793A3,3,0,0,1,890.667,3579.793Z" transform="translate(-875.632 -3558)" fill="#fff"/>
+    </g>
+</svg>

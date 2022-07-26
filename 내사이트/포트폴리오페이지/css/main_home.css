@@ -1,0 +1,219 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+ul,
+ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color:#fff;
+}
+body *{
+
+}
+
+/* header */
+header {
+	position:fixed;
+	top: 0;
+	right: 0%;
+	z-index: 1;
+	background-color: transparent;
+	display: flex;
+	width: 100%;
+	height: 80px;
+}
+header .inner {
+	display: flex;
+	width: 1180px;
+	margin: 0px auto;
+	position: relative; /*자식 absolute 요소의 기준점 설정*/
+}
+header .inner h1 {
+	position: absolute;
+	left: 25px;
+	top:25px;
+	opacity: 0;
+	animation: yu 1s 3s ease-in forwards;
+}
+header .inner img{
+	width:100%;
+}
+header .inner .util {
+	display: flex;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+header .inner .util li {
+}
+header .inner .util li a {
+	display: block;
+	font: 12px/1 "arial";
+	color:#fff;
+	padding: 0px 10px;
+	opacity: 0;
+	animation: yu 1s 3s ease-in forwards;
+}
+header .inner #gnb {
+	position: absolute;
+	bottom: 0px;
+	left:30%;
+	margin: 0 auto;
+	margin-right:10px;
+	display: flex;
+	white-space: nowrap;
+}
+header .inner #gnb li {
+
+}
+header .inner #gnb li a {
+	display: block; /*인라인 요소는 block설정하여 크기를 조절가능*/
+	font: bold 15px/1 "arial";
+	color:#fff;
+	padding: 20px 40px;
+	transition: all 0.5s;
+	opacity: 0;
+	animation:yu 1s 3s ease-in forwards;
+}
+@keyframes yu {
+	to{
+		opacity: 1;
+	}
+}
+header:hover{
+	background-color: #fff;
+}
+header:hover .util li a{
+	color: #000;
+}
+header:hover #gnb li a{
+	color: #000;
+}
+
+section .txt{
+	position: absolute;
+	top: 30%;
+	right: 50px;
+	font-size:30px;
+	color:#fff;
+}
+section .txt .txt1{
+	display: none;
+	animation: play1 5s 1s  forwards;
+}
+section .txt .txt2{
+	display: none;
+	animation: play1 5s 5s ease-in forwards;
+}
+section .txt .txt3{
+	display: none;
+	animation: play1 5s 10s ease-in forwards;
+}
+@keyframes play1{
+	0%{
+		display: block;
+	}
+	50%{
+		display: block;
+	}
+	51%{
+		display: none;
+	}
+	100%{
+		display: none;
+	}
+}
+
+section figure {
+	width: 100vw;
+	height: 100vh;
+	background: #000;
+	position: relative;
+	overflow: hidden;
+	/* border:1px solid yellow; */
+	display: flex;
+	padding:50px 0;
+}
+section figure video {
+	object-fit: cover; /*영상을 figure안쪽에 꽉 차도록 설정*/
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+/* news */
+section .inner2 {
+	width: 100%;
+	height: calc(100vh - 425px);
+	padding:50px 0;
+}
+section .inner2 h1 {
+	font: bold 24px/1 "arial";
+	color: #555;
+	text-align: center;
+	margin-bottom: 50px;
+}
+section .inner2 .wrap {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+section .inner2 .wrap article {
+	width: 280px;
+	margin-right: 20px;
+}
+section .inner2 .wrap article:last-child {
+	/*제일 오른쪽 마지막 요소만 여백제거*/
+	margin-right: 0px;
+}
+section .inner2 .wrap article h2 {
+	margin-bottom: 10px;
+}
+section .inner2 .wrap article h2 a {
+	font: bold 16px/1 "arial";
+	color: #555;
+}
+section .inner2 .wrap article p {
+	font: 14px/1.4 "arial";
+	color: #777;
+}
+section .inner2 .wrap article .pic {
+	width: 100%;
+	height: 120px;
+	background: #333;
+	margin-bottom: 15px;
+	position: relative;
+	overflow: hidden;
+}
+section .inner2 .wrap article .pic img {
+	object-fit: cover; /*pic프레임안에 이미지 꽉 채움*/
+	width: 100%;
+	height: 100%;
+}
+
+.content{
+	width: 100vw;
+	height: 100vh;
+}
+#content1{
+	background:red;
+}
+#content2{
+	background:orange;
+}
+#content3{
+	background:yellow;
+}
+#content4{
+	background:green;
+}
+#content5{
+	background:blue;
+}
