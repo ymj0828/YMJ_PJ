@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded",()=>{
+$(() => {
 
     function txt(){
         const txt = document.querySelector('#txt')

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 	<link rel="stylesheet" href="/css/main2.css">
-    <script src="/js/main2.js"></script>
+    <!-- 외부JS삽입 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/main2.js"></script>
 </head>
 <body>
     <header>
@@ -49,9 +52,17 @@
         </div> 
     </section>
     <section id="content1" class="content">
-        <ul id="slide">
-            <li><img src="/images/slide01.jpg" alt=""></li>
-        </ul>
+        <div class="slidebox">
+            <ul id="slide">
+                <li><img src="/images/slide01.jpg" alt=""></li>
+            </ul>
+            <div class="control">
+                <a href="#" class="prev"></a>
+                <a href="#" class="next"></a>
+                <a href="#" class="pause"></a>
+            </div>
+        </div>
+
     </section>
 
     <section id="content2" class="content">

@@ -31,7 +31,22 @@
 
       */
 
-      
+      // 랜덤수 함수
+      const rdm = () => Math.ceil(Math.random() * 5);
+      // 1~5사이 랜덤수 리턴함!
+
+      // 미션: img태그를 클릭하면 img의 class를 
+      //      랜덤으로 변경하시오.(type1~type5 의 class중 하나)
+      $("img").click(function () {
+        $(this).removeClass() // 모든 class지우기
+        .addClass("type"+rdm()); // 랜덤 class넣기!
+      }); ////////// click /////////
+
+      // 추가미션: .my 박스를 클릭하면 .pos를 넣기/빼기
+      // .pos가 없으면 넣고 있으면 뺀다! -> toggleClass()를 사용!
+      $(".my").click(function(){
+        $(this).toggleClass("pos");
+      }); ///////// click ////////////
 
 
 

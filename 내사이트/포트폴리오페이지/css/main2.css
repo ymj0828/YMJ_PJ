@@ -159,9 +159,16 @@ section figure video {
 	width: 100vw;
 	height: 100vh;
 }
+.slidebox{
+	width: 740px;
+    height: 609px;
+    margin-left: 24px;
+	position: relative;
+}
 #slide{
+	position: relative;
 	display: flex;
-	position: absolute;
+	/* position: absolute; */
 	top: calc(20px);
 	right: calc(200px);
 
@@ -173,6 +180,38 @@ section figure video {
 #slide li img{
 	width: 100%;
 	height: 100%;
+}
+#slide .control{
+	position: absolute;
+	left: 84px;
+    top: 486px;
+}
+#slide .control a.prev{
+	position: relative;
+}
+#slide .control a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 1px solid #fff;
+    opacity: .5;
+}
+#slide .control a.prev::after {
+	position: absolute;
+	content: '';
+	background: url(../images/spr_com.png);
+    background-position: -405px -182px;
+}
+
+#slide .control a::after{
+	position: absolute;
+    top: 12px;
+    left: 13px;
+    width: 12px;
+    height: 16px;
 }
 #content1{
 	background:red;
