@@ -159,11 +159,13 @@ section figure video {
 	width: 100vw;
 	height: 100vh;
 }
+#conibx1{
+	width:1300px;
+	height:80%;
+}
 .slidebox{
-	width: 1300px;
-    height: 609px;
-    margin-left: 24px;
-	position: relative;
+	width: 50%;
+    height: 50%;
 }
 #slide{
 	position: relative;
@@ -171,7 +173,6 @@ section figure video {
 	/* position: absolute; */
 	top: calc(20px);
 	right: calc(200px);
-
 }
 #slide li{
 	flex-shrink: 0;
