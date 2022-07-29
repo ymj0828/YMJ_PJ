@@ -19,8 +19,9 @@ a {
 	color:#fff;
 }
 body *{
-
+	
 }
+
 
 /* header */
 header {
@@ -136,7 +137,7 @@ section .txt .txt3{
 }
 
 section figure {
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	background: #000;
 	position: relative;
@@ -156,23 +157,29 @@ section figure video {
 
 .content{
 	position: relative;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 }
 #conibx1{
-	width:1300px;
+	margin: 0 auto;
+	position: relative;
+	width:80%;
 	height:80%;
 }
 .slidebox{
+	position: absolute;
 	width: 50%;
     height: 50%;
+	top:0;
+	right: 0;
+	margin: 10px;
 }
 #slide{
-	position: relative;
+	/* position: relative; */
 	display: flex;
-	/* position: absolute; */
-	top: calc(20px);
-	right: calc(200px);
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 #slide li{
 	flex-shrink: 0;
@@ -182,15 +189,19 @@ section figure video {
 	width: 100%;
 	height: 100%;
 }
-#slide .control{
+.slidebox .control{
 	position: absolute;
+	width:50%;
+	height: 7%;
 	left: 84px;
-    top: 486px;
+    top: 50px;
 }
-#slide .control a.prev{
+.slidebox .control a.prev{
 	position: relative;
+	width:100%;
+	height:100%;
 }
-#slide .control a:before {
+.slidebox .control a:before {
     content: '';
     position: absolute;
     left: 0;
@@ -200,18 +211,19 @@ section figure video {
     border: 1px solid #fff;
     opacity: .5;
 }
-#slide .control a.prev::after {
+.slidebox .control a.prev::after {
 	position: absolute;
 	content: '';
 	background: url(../images/spr_com.png);
     background-position: -405px -182px;
 }
 
-#slide .control a::after{
+.slidebox .control a::after{
 	position: absolute;
-    top: 12px;
-    left: 13px;
-    width: 12px;
+	content: '';
+	top: 4px;
+	left:5px;
+	width: 12px;
     height: 16px;
 }
 #content1{
