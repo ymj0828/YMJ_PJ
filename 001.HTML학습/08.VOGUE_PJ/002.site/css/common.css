@@ -3,6 +3,10 @@
 /* 상단,하단영역 반복 레이아웃 */
 
 /*************** 1. 상단영역 ***************/
+#top{
+    /* 박스 하단 경계선 그림자 */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
 .top{
     min-height: 206px;
 }
@@ -114,18 +118,17 @@
     /* 앱솔루트의 미세위치조정은 마진으로! */
     border: 1px solid #e5e5e5;
     background-color: #fff;
-    /* 처음에 투명함 */
+
+    /* 처음에 투명함! */
     opacity: 0;
     /* 처음에 높이값0 */
-    height: 0;/* 89px */
+    height: 0;/* 87px */
     /* 넘치는 자식요소 숨기기 */
     overflow: hidden;
 }
-
-
 /* 상위메뉴 마우스 오버시 나타나기 */
 .smbx>li:first-child:hover .smsub{
-    opacity: 1;
+    opacity: 1;/* 투명도 1 보임! */
     height: 87px;/* 높이값 복원 */
     /* 오버시에만 트랜지션 opacity만 적용 */
     transition: opacity .4s ease-in-out;
@@ -134,7 +137,7 @@
 .smsub a{
     display: block;
     padding: 7px 10px;
-    padding-right: 20px;
+    padding-right: 19px;
     color: #747474;
 
     /* 트랜지션: 속시이지 */
@@ -144,7 +147,6 @@
 .smsub a:hover{
     background-color: #fafafa;
     color: #333;
-
 }
 
 /************ 1-2.로고박스 ************/
@@ -158,8 +160,9 @@
     /* 글자설정 */
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 16px;
-    min-height: 45px;
     line-height: 40px;
+
+    min-height: 45px;
 }
 /* GNB ul */
 .gnb ul{
@@ -190,8 +193,58 @@
 }
 /* 오버시 a요소 */
 .gnb a:hover{
-    color:red;
+    color: red;
 }
+
+/************ 슬림 상단 디자인 변경 ************/
+/* #top 최상위 박스에 클래스 "on"을 줘서 적용! */
+
+/* 1. 상단영역 최상위 고정 */
+#top.on {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff;
+}
+/* 2. 상단영역 속박스(.top) 최소높이 해제 */
+#top.on .top{
+    min-height: auto;
+}
+/* 3. 탑메뉴 없애기 */
+#top.on .tmenu{
+    display: none;
+}
+/* 4. 메인로고 이미지 크기변경 */
+#top.on .logo img{
+    width: 100px;
+}
+/* 5. 메인로고 박스 포지션 변경 */
+#top.on .logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*  부모는? #top */
+    padding: 10px;
+}
+/* 6. GNB 변경 */
+#top.on .gnb{
+    font-size: 14px;
+    padding: 5px 120px 0;
+    /* 양쪽패딩 120px 밀어줌! - 로고때문! */
+}
+/* 글자색은 a요소에서 변경! */
+#top.on .gnb a{
+    
+    color: #333;
+}
+/* li 오른쪽 패딩 변경 */
+#top.on .gnb li {
+    padding-right: 35px;
+}
+
+
 
 /*************** 2. 하단영역 ***************/
 .info{
@@ -202,22 +255,22 @@
     box-sizing: border-box;
     font-family: "Roboto", nbg;
 }
-/*********************** 3-1. 하단로고 ***********************/
+/************ 3-1.하단로고 ************/
 .blogo{
     text-align: center;
 }
 
-/*********************** 3-2. 회사주소 ***********************/
+/************ 3-2.회사주소 ************/
 .addr{
-    color:#747474;
+    color: #747474;
     text-align: center;
     font-size: 11px;
-    /* address 기본이탤릭 해제 */
+    /* address 기본이택릭 해제 */
     font-style: normal;
     margin: 20px 0 10px;
 }
 
-/*********************** 3-3. 하단링크 ***********************/
+/************ 3-3.하단링크 ************/
 .blink{
     /* 플렉스박스 */
     display: flex;
@@ -225,9 +278,10 @@
     justify-content: center;
     /* 랩핑박스 */
     flex-wrap: wrap;
+
 }
 .blink a{
-    color:#747474;
+    color: #747474;
     font-size: 13px;
     margin: 0 6px;
 }
