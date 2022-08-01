@@ -173,6 +173,7 @@ header:hover #gnb li a{
 	height: calc(90vh - 80px);
 	top:calc(100% - 95vh + 80px);
 	padding: 30px;
+	background-color: white;
 }
 
 #content1 .package{
@@ -580,17 +581,40 @@ header:hover #gnb li a{
 	border-radius: 50%;
 }
 
-.bg1 .on{
-	background-color: blue;
+
+#content4 .ggj{
+	background-color: red;
+	display: flex;
+	flex: 1;
 }
+#content4 .ggj .go{
+	background-color: orange;
+	flex: 1;
+}
+#content4 .ggj .gongja{
+	background-color: yellow;
+	flex: 1;
+}
+#content4 .ggj .gongja .gong{
+	background-color: green;
+	flex: 1;
+}
+#content4 .ggj .gongja .ja{
+	background-color: blue;
+	flex: 1;
+}
+#content4 .info{
+	background-color: purple;
+	flex: 1;
+}
+
 
 #content1{
 	background-color: #cdf1eb;
 }
-
 #content3{
 	background:url(../images/content3_bg.png) no-repeat center/cover
 }
 #content4{
-	background:green;
+	background:skyblue;
 }
