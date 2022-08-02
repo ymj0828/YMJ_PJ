@@ -1,2 +1,0 @@
-지도 svg
-https://mapsvg.com/maps
