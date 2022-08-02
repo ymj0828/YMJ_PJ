@@ -1,4 +1,5 @@
-// 무한이동 드래그&클릭형 배너 JS - drag.js
+// 무한이동 드래그&클릭형&멀티 배너 JS - multi.js
+
 
 // 제이쿼리 코드 블록 /////////////////////
 $(() => {
@@ -25,15 +26,15 @@ $(() => {
     // 이벤트 대상: .abtn
     // 이벤트 : click() 메서드 사용
     // 양쪽버튼 구분 : .lb(왼쪽버튼) / .rb(오른쪽버튼)
-    // 변경대상: #viewer ul
+    // 변경대상: .viewer ul
     // 변경내용: 슬라이드의 left값을 이동하여 애니메이션함!
-    let slide = $("#viewer ul");
+    let slide = $(".viewer ul");
 
     // 변경에 사용할 제이쿼리 메서드: 
     // animate({CSS속성},시간,이징,함수)
 
-    // 변경대상: 블릿 - #indic li
-    let indic = $("#indic li");
+    // 변경대상: 블릿 - .indic li
+    let indic = $(".indic li");
 
     // 광클 금지상태변수
     let prot = 0; // 1-불허용, 0-허용
@@ -47,7 +48,11 @@ $(() => {
     // 왼쪽이동시 드래그할 경우 위치보정값
     let tval = 0;
 
-    $(".abtn").click(function () {
+    $(".abtn").click(function (e) { // e-이벤트전달변수
+
+        // a기본이동 막기
+        // (맨뒤 return false와 효과동일!)
+        e.preventDefault();
 
         // console.log("진입:",prot);
 
@@ -71,8 +76,9 @@ $(() => {
 
         // 2. 버튼별 분기하여 기능구현
         if (isR) { // 오른쪽버튼
-
-            slide.animate({
+            // 클릭된 버튼의 부모아래 상대적인 요소선택! 슬라이드!
+            $(this).parent().find(".viewer>ul")
+            .animate({
                     left: "-100%"
                 }, // CSS설정
                 aniT, // 시간
@@ -95,8 +101,12 @@ $(() => {
         else { // 왼쪽버튼
 
             // 맨뒤요소를 맨앞에 이동
-            slide
-                .prepend(slide.find("li").last())
+            // 클릭된 버튼의 부모아래 상대적인 요소선택! 슬라이드!
+            $(this).parent().find(".viewer>ul")
+                .prepend(
+                    // 클릭된 버튼의 부모아래 상대적인 요소선택! 슬라이드!
+                    $(this).parent().find(".viewer>ul")
+                    .find("li").last())
                 // prepend(요소) 자식요소로 앞에 추가(이동)
                 // find(요소) 자손요소찾기
                 // last() 마직막요소
@@ -127,8 +137,9 @@ $(() => {
         // eq(순번) -> 몇번째 요소
         // eq(isR?1:0) -> isR?1:0 -> 3항연산자
         // isR이 true이면(1이면) 1을 출력, 아니면 0출력
+        console.log("난누규?",this);
         let sseq =
-            slide.find("li").eq(isR ? 1 : 0).attr("data-seq");
+            $(this).parent().find(".viewer>ul").find("li").eq(isR ? 1 : 0).attr("data-seq");
         console.log("슬순:", sseq);
 
         // 등장슬라이드 순번과 동일한 블릿순번에
@@ -139,10 +150,10 @@ $(() => {
         // 2. removeClass()
         // 3. toggleClass()
 
-        // 변경대상: #indic li -> indic 변수
+        // 변경대상: .indic li -> indic 변수
 
         // 해당순번(sseq)의 블릿li에 클래스"on" 넣기 
-        indic.eq(sseq).addClass("on")
+        $(this).parent().find(".indic li").eq(sseq).addClass("on")
             // 다른형제요소들 -> siblings() 은 클래스지워!
             .siblings().removeClass("on");
 
@@ -169,13 +180,19 @@ $(() => {
     // attr(속성명, 값) -> 속성값 셋팅
 
 
-    // 대상: 슬라이드의 li
-    slide.find("li").each(function (idx, ele) {
+    // 대상: 슬라이드의 li에 순번넣기!
+    $(".viewer") // .viewer개수만큼 돌기
+    .each(function (idx, ele) {
+        // console.log(ele);
+        $(ele).find("li").each((seq,ele2)=>{
+            // 'data-seq' 라는 
+            // 새로운 속성에 순번을 넣음!
+            // 각각의 슬라이드 li마다 0번부터 별도로 넘버링함!
+            $(ele2).attr("data-seq", seq);
+            // console.log(ele,idx);
 
-        // 'data-seq' 라는 
-        // 새로운 속성에 순번을 넣음!
-        $(ele).attr("data-seq", idx);
-        // console.log(ele,idx);
+        });
+
 
     }); ///////// each ////////////////
 
@@ -202,7 +219,7 @@ $(() => {
         autoI = setInterval(() => {
 
             // 슬라이드 넘기기
-            slide.animate({
+            $(this).parent().find(".viewer>ul").animate({
                     left: "-100%"
                 }, aniT, aniE,
                 function () {
@@ -215,7 +232,7 @@ $(() => {
 
             // 블릿변경하기
             let sseq =
-                slide.find("li").eq(1).attr("data-seq");
+                $(this).parent().find(".viewer>ul").find("li").eq(1).attr("data-seq");
 
             indic.eq(sseq).addClass("on")
                 .siblings().removeClass("on");
@@ -252,7 +269,7 @@ $(() => {
 
     /**************************************** 
          블릿 클릭시 이동기능 구현하기
-         - 대상: #indic li -> indic변수
+         - 대상: .indic li -> indic변수
          - 이벤트: click -> click() 메서드
     ****************************************/
     indic.click(function () {
@@ -268,7 +285,7 @@ $(() => {
         console.log("블번:", idx)
 
         // 2. 현재 슬라이드 순번(첫번째 슬라이드 'data-seq'값)
-        let sidx = slide.find("li")
+        let sidx = $(this).parent().parent().find(".viewer>ul").find("li")
             .first().attr("data-seq");
         console.log("슬번:", sidx)
 
@@ -298,7 +315,10 @@ $(() => {
                 absd = absd - 1;
 
                 // 맨뒤로 첫번째 슬라이드 미리이동
-                slide.append(slide.find("li").first())
+                $(this).parent().parent().find(".viewer>ul")
+                .append(
+                    $(this).parent().parent().find(".viewer>ul")
+                    .find("li").first())
                     .css({
                         left: "100%"
                     });
@@ -307,7 +327,7 @@ $(() => {
 
 
             // 기본이동이 오른쪽버튼과 동일함!
-            slide.animate({
+            $(this).parent().parent().find(".viewer>ul").animate({
                     left: (-100 * absd) + "%"
                     // 절대차이값 만큼 left이동!
                 }, // CSS설정
@@ -320,7 +340,7 @@ $(() => {
                     let temp = absd;
                     for (let i = 0; i < absd; i++) {
                         temp--; // 1씩감소
-                        $(this) // slide
+                        $(this).parent().parent().find(".viewer>ul") // slide
                             .append($("li", this).first())
                             .css({
                                 left: (-100 * temp) + "%"
@@ -349,8 +369,8 @@ $(() => {
                 for (let i = 0; i < absd; i++) {
                     temp++; // 1씩증가
 
-                    slide
-                        .prepend(slide.find("li").last())
+                    $(this).parent().parent().find(".viewer>ul")
+                        .prepend($(this).parent().find(".viewer>ul").find("li").last())
                         .css({
                             left: (-100 * temp) + "%"
                         })
@@ -358,7 +378,7 @@ $(() => {
                 } ///////// for //////////////
                 // 맨뒤요소를 맨앞에 이동
                 // 그후 left값 0으로 애니메이션
-                slide.animate({
+                $(this).parent().parent().find(".viewer>ul").animate({
                         left: "100%"
                         // 맨앞슬라이드까지 이동함
                         // 첫번째가 비어있음!
@@ -366,7 +386,7 @@ $(() => {
                     aniT, //시간
                     aniE, // 이징
                     ()=>{ // 이동후 맨뒤요소 맨앞이동 left:0
-                        slide.prepend(slide.find("li").last())
+                        $(this).parent().parent().find(".viewer>ul").prepend($(this).parent().find(".viewer>ul").find("li").last())
                         .css({left:"0"});
                     } //// 콜백함수 ///
                 ); ////// animate //////
@@ -380,8 +400,8 @@ $(() => {
                 for (let i = 0; i < absd; i++) {
                     temp++; // 1씩증가
 
-                    slide
-                        .prepend(slide.find("li").last())
+                    $(this).parent().parent().find(".viewer>ul")
+                        .prepend($(this).parent().parent().find(".viewer>ul").find("li").last())
                         .css({
                             left: (-100 * temp) + "%"
                         })
@@ -389,7 +409,7 @@ $(() => {
                 } ///////// for //////////////
                 // 맨뒤요소를 맨앞에 이동
                 // 그후 left값 0으로 애니메이션
-                slide.animate({
+                $(this).parent().parent().find(".viewer>ul").animate({
                         left: "0"
                     },
                     aniT, //시간
@@ -414,29 +434,29 @@ $(() => {
 
     // 0. 대상선정:
     // 슬라이드 부모박스
-    let sbx = $("#viewer");
+    let sbx = $(".viewer");
 
     // 1. 슬라이드 드래그 이동 설정
-    slide.draggable({
+    $(this).parent().find(".viewer>ul").draggable({
         axis: 'x'
     }); ////// 드래그설정 ////////
 
     /******************************************* 
         드래그가 끝났을때 방향을 판단하여
         슬라이드 이동하기
-        대상: 슬라이드 - #viewer ul -> slide변수
+        대상: 슬라이드 - .viewer ul -> slide변수
         -> 이벤트: dragstop 
     *******************************************/
     // 광드래그 막기요소
     let cover = $(".cover");
 
-    slide.on("dragstop", function () {
+    $(this).parent().find(".viewer>ul").on("dragstop", function () {
 
         // 광드래그막기 작동!
         cover.show();
 
         // 1. left위치값 읽어오기
-        let spos = slide.position().left;
+        let spos = $(this).parent().find(".viewer>ul").position().left;
         // offset().left 는 보이는 화면 왼쪽선 기준함
         // position().left는 싸고잇는 포지션있는 부모박스 기준함
 
@@ -461,7 +481,7 @@ $(() => {
         }
         // 2-3. 기준값 사이일때는 제자리!
         else
-            slide.animate({
+            $(this).parent().find(".viewer>ul").animate({
                     left: 0
                 }, 300, "easeOutQuint",
                 () => cover.hide());
