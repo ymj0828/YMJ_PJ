@@ -38,8 +38,8 @@ $(() => {
     // 2. 버튼 셋팅하기
     // 모든 버튼은 숨기고 첫번째 버튼만 보여
     // 버튼.숨겨().첫번째().보여()
-    // btns.hide().first().show();
-    btns.hide().last().show();
+    btns.hide().first().show();
+    // btns.hide().last().show();
 
     // 3. 공통 구현 함수 만들기
     // 각 스텝에서 미니언즈가 할 공통 기능 함수구현!
@@ -381,13 +381,13 @@ $(() => {
                 .delay(500) // 0.5초 쉬었다가
                 .animate({ // 다시 오른쪽 끝으로 이동
                     left:"70%"
-                },4000,"easeOutCirc",
+                },4000,"easeInOutCirc",
                 function(){ // 끝쪽에서 조정사 좀비로!
                     $(this)
                     .attr("src","images/heli3.png");
                 })
                 .delay(300)
-                .animate({ // 아주 천천히 나감
+                .animate({ // 아주 천천히 나감!
                     left: "100%"
                 },1000,"linear",()=>{
                     // 최종 마무리 구역 ///
@@ -395,28 +395,26 @@ $(() => {
                     // 간판 떨어뜨리기
                     // 1단계 : 중간까지 떨어짐
                     // -> 간판에 class "on"주기
-                    let tit = $('.tit');
+                    let tit = $(".tit");
                     tit.addClass("on");
-                    setTimeout( // 3초후 2단계 다 떨어짐
+                    setTimeout( // 3초후 2단계 다떨어짐
                         // -> 간판에 class "on2"추가
-                        ()=>tit.addClass('on2')
-                        ,3000);
+                        ()=>tit.addClass("on2")
+                    ,3000);
 
-                        // 빌딩 무너뜨리기
-                        // 간판 떨어진 후 실행(6초후)
-                        setTimeout(()=>
-                            bd.parent().addClass('on')
-                            // parent() 부모요소인 .building
-                        ,6000);
+                    // 빌딩 무너뜨리기
+                    // 간판 떨어진 후 실행(6초후)
+                    setTimeout(()=>
+                        bd.parent().addClass("on")
+                        // parent() 부모요소인 .building
+                    ,6000);
 
 
-                }) /////////// animate ////////////////
-
+                }); ///////// animate //////////
 
 
                 // 다음버튼 보이기
                 $(this).next().fadeIn(300);
-
 
 
             }; ///////// fn //////////
@@ -426,19 +424,23 @@ $(() => {
 
         }) ///////// "헬기를 호출!" click /////////
 
-        // 간판에 마우스 오버시 / 아웃시 색상변경
-        // hover(함수1,함수2)
-        // - 함수1은 오버시, 함수2는 아웃시 실행
-        $('.tit').hover(
+
+        // 간판에 마우스 오버시/ 아웃시 색상변경!
+        // hover(함수1,함수1)
+        // - 함수1은 오버시, 함수2는 아웃시 실행!
+        $(".tit").hover(
             function(){ // over
                 $(this).css({
                     backgroundColor:"blue",
-                    color:"pink"
+                    color:"cyan"
                 });
-
-        },function(){ // out
-
-        }); ////////// hover //////////////////////
+            },
+            function(){ // out
+                $(this).css({
+                    backgroundColor:"pink",
+                    color:"yellow"
+                });
+            }); ///////// hover //////////
 
 
 
