@@ -10,6 +10,63 @@ $(() => {
     /// 부드러운 스크롤 호출!(제이쿼리 아님!)
     startSS();
 
+    /************************************** 
+        모바일 버튼 클릭시 검색 / GNB 보이기
+    **************************************/
+    // 1. 햄버거버튼
+    $('.hbtn').click(() => {
+        // GNB 박스 슬라이딩 보임/숨김
+        // slideToggle() -> slideUp/slideDown
+        // 대상: 모바일 GNB
+        $('#mobx').slideToggle(400,resetH);
+        // 애니후 높이값 재설정 호출!
+    }); ////////// click /////////
+
+    // 2. 검색버튼
+    $('.sbtn').click(() => {
+        // GNB 박스 슬라이딩 보임/숨김
+        // slideToggle() -> slideUp/slideDown
+        // 대상: 모바일 GNB
+        $('.mos').slideToggle(200,resetH);
+        // 애니후 높이값 재설정 호출!
+    }); ////////// click /////////
+
+    /* 모바일 GNB 높이값 재설정 함수 */
+    const resetH = () => {
+        // #mobx의 높이값을 동적으로 생성함
+        console.log(
+            '.top의 높이값:',
+            $('.top').innerHeight(),
+            '\n.mos의 높이값:',
+            $('.mos').css('display')
+        );
+
+        // 검색박스 높이는 block일때 넣어줌!
+        let temp = $('.mos').css('display')==='none'?
+        0:$('.mos').innerHeight();
+
+        // 변경할 높이
+        let Hval = 
+        $('.top').innerHeight() + temp;
+        // innerHeight()는 패딩포함높이
+        // height()는 순수높이(컨텐츠만)
+        // 017문서참조
+
+        console.log('.top높이:',
+        $('.top').innerHeight());
+
+        console.log('.mos높이:',
+        $('.mos').css('display')==='none'?
+        0:$('.mos').innerHeight());
+
+        console.log('보정높이:',Hval);
+
+        // 동적으로 변경하기
+        $("#mobx").css({
+            height: `calc(100vh - ${Hval}px)`
+        })
+    }; /////// resetH 함수 ///////////
+
 
 
 
@@ -175,7 +232,7 @@ $(() => {
 
 
 // 윈도우 객체 컨텐츠가 모두 로딩된 후 로딩박스 없애기
-$(window).on("load",function(){
+$(window).on("load", function () {
     $(".LDbx").hide();
 }); /////////// load ///////////////
 
@@ -183,22 +240,22 @@ $(window).on("load",function(){
 /************************************************ 
     제이쿼리 스크롤 멈춤 체크 플러그인 메서드
 ************************************************/
-$.fn.scStop = function(callback){
+$.fn.scStop = function (callback) {
 
     ///// 스크롤 이벤트 설정하기 //////////
-    $(this).scroll(function(){
+    $(this).scroll(function () {
 
         // 1. 먼저 타임아웃지우기(아래서 설정된 타임아웃)
         clearTimeout($(this).data('scTime'));
         // 2. 타임아웃설정을 한다!
-        $(this).data('scTime', setTimeout(callback,80));
+        $(this).data('scTime', setTimeout(callback, 80));
         // 제이쿼리 data() 메서드
         // -> data(키,값)  특정이름에 값을 셋팅하여 저장!
         // 타임아웃에 시간은 부드러운 스크롤에 셋팅된 시간인
         // speed, smooth 시간을 더한 값으로 넣어준다!
         // 예) new SmoothScroll(document, 60, 20) -> 60+20=80
         // 80dms 1/1000초 (0.08초)
-        
+
     }); //// 스크롤시 계속 발생구역 ///////
 
 
@@ -207,7 +264,7 @@ $.fn.scStop = function(callback){
 
 /// 윈도우객체를 제이쿼리로 플러그인 호출!
 // 이때 실행될 함수를 전달함!
-$(window).scStop(function(){
+$(window).scStop(function () {
     // 마지막 스크롤 위치값 
     let scTop = $(this).scrollTop();
     // 콘솔에 확인!
@@ -218,12 +275,12 @@ $(window).scStop(function(){
 
 
 
-$(()=>{
+$(() => {
 
     // 제이쿼리 data(키,값) 연습
     let mykey = $("#top");
-    mykey.data('헐','고양이');
-    mykey.data('힘','강아지');
+    mykey.data('헐', '고양이');
+    mykey.data('힘', '강아지');
 
     // console.log(
     //     'data()키값:',
@@ -233,7 +290,7 @@ $(()=>{
     // data() 삭제는 removeData(키)
     mykey.removeData('헐');
 
-    
+
     // console.log(
     //     'data()키값:',
     //     mykey.data('헐'),'/',
@@ -250,9 +307,9 @@ $(()=>{
 const keyval = new Map();
 
 // 2. 값셋팅: set(키,값)
-keyval.set('한국배우','조승우');
-keyval.set('미국배우','탐크루즈');
-keyval.set('중국배우','성룡');
+keyval.set('한국배우', '조승우');
+keyval.set('미국배우', '탐크루즈');
+keyval.set('중국배우', '성룡');
 
 // 3. 값호출 : get(키)
 // console.log('Map()값:',
